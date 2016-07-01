@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.labelChooseDirectory = new System.Windows.Forms.Label();
-            this.buttonChooseDirectory = new System.Windows.Forms.Button();
-            this.buttonGenerateReport = new System.Windows.Forms.Button();
             this.panelRetrieve = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonMain = new System.Windows.Forms.Button();
             this.labelCondition = new System.Windows.Forms.Label();
             this.labelChooseWeatherStation = new System.Windows.Forms.Label();
             this.comboBoxCondition = new System.Windows.Forms.ComboBox();
@@ -40,54 +40,24 @@
             this.panelRetrieveShowData = new System.Windows.Forms.Panel();
             this.dataGridViewRetrieve = new System.Windows.Forms.DataGridView();
             this.buttonRetrieveReturn = new System.Windows.Forms.Button();
+            this.buttonGenerateReport = new System.Windows.Forms.Button();
             this.dateTimePickerRetrieveEnd = new System.Windows.Forms.DateTimePicker();
+            this.buttonChooseDirectory = new System.Windows.Forms.Button();
+            this.labelChooseDirectory = new System.Windows.Forms.Label();
             this.dateTimePickerRetrieveBegin = new System.Windows.Forms.DateTimePicker();
             this.labelRetrieve = new System.Windows.Forms.Label();
-            this.buttonMain = new System.Windows.Forms.Button();
             this.panelRetrieve.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelRetrieveShowData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRetrieve)).BeginInit();
             this.SuspendLayout();
-            // 
-            // labelChooseDirectory
-            // 
-            this.labelChooseDirectory.AutoSize = true;
-            this.labelChooseDirectory.BackColor = System.Drawing.Color.Transparent;
-            this.labelChooseDirectory.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelChooseDirectory.Location = new System.Drawing.Point(857, 68);
-            this.labelChooseDirectory.Name = "labelChooseDirectory";
-            this.labelChooseDirectory.Size = new System.Drawing.Size(77, 12);
-            this.labelChooseDirectory.TabIndex = 1;
-            this.labelChooseDirectory.Text = "报表存储目录";
-            // 
-            // buttonChooseDirectory
-            // 
-            this.buttonChooseDirectory.AutoSize = true;
-            this.buttonChooseDirectory.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonChooseDirectory.Location = new System.Drawing.Point(728, 63);
-            this.buttonChooseDirectory.Name = "buttonChooseDirectory";
-            this.buttonChooseDirectory.Size = new System.Drawing.Size(111, 23);
-            this.buttonChooseDirectory.TabIndex = 2;
-            this.buttonChooseDirectory.Text = "选择报表存放目录";
-            this.buttonChooseDirectory.UseVisualStyleBackColor = false;
-            this.buttonChooseDirectory.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // buttonGenerateReport
-            // 
-            this.buttonGenerateReport.AutoSize = true;
-            this.buttonGenerateReport.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonGenerateReport.Location = new System.Drawing.Point(967, 63);
-            this.buttonGenerateReport.Name = "buttonGenerateReport";
-            this.buttonGenerateReport.Size = new System.Drawing.Size(111, 23);
-            this.buttonGenerateReport.TabIndex = 3;
-            this.buttonGenerateReport.Text = "生成报表";
-            this.buttonGenerateReport.UseVisualStyleBackColor = false;
-            this.buttonGenerateReport.Click += new System.EventHandler(this.button2_Click);
             // 
             // panelRetrieve
             // 
             this.panelRetrieve.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelRetrieve.BackgroundImage")));
             this.panelRetrieve.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelRetrieve.Controls.Add(this.pictureBox1);
+            this.panelRetrieve.Controls.Add(this.button1);
             this.panelRetrieve.Controls.Add(this.buttonMain);
             this.panelRetrieve.Controls.Add(this.labelCondition);
             this.panelRetrieve.Controls.Add(this.labelChooseWeatherStation);
@@ -106,12 +76,56 @@
             this.panelRetrieve.Size = new System.Drawing.Size(1114, 733);
             this.panelRetrieve.TabIndex = 4;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Smeshlink海绵城市Client.Properties.Resources._1424377706;
+            this.pictureBox1.Location = new System.Drawing.Point(418, 153);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Smeshlink海绵城市Client.Properties.Resources.未标题_1;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(638, 92);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 38);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "开始查询";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // buttonMain
+            // 
+            this.buttonMain.BackgroundImage = global::Smeshlink海绵城市Client.Properties.Resources.未标题_1;
+            this.buttonMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonMain.Enabled = false;
+            this.buttonMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMain.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonMain.ForeColor = System.Drawing.Color.White;
+            this.buttonMain.Location = new System.Drawing.Point(967, 12);
+            this.buttonMain.Name = "buttonMain";
+            this.buttonMain.Size = new System.Drawing.Size(125, 38);
+            this.buttonMain.TabIndex = 9;
+            this.buttonMain.Text = "开始查询";
+            this.buttonMain.UseVisualStyleBackColor = true;
+            this.buttonMain.Visible = false;
+            this.buttonMain.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // labelCondition
             // 
             this.labelCondition.AutoSize = true;
             this.labelCondition.BackColor = System.Drawing.Color.Transparent;
             this.labelCondition.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelCondition.Location = new System.Drawing.Point(209, 105);
+            this.labelCondition.Location = new System.Drawing.Point(217, 105);
             this.labelCondition.Name = "labelCondition";
             this.labelCondition.Size = new System.Drawing.Size(53, 12);
             this.labelCondition.TabIndex = 7;
@@ -122,7 +136,7 @@
             this.labelChooseWeatherStation.AutoSize = true;
             this.labelChooseWeatherStation.BackColor = System.Drawing.Color.Transparent;
             this.labelChooseWeatherStation.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelChooseWeatherStation.Location = new System.Drawing.Point(209, 68);
+            this.labelChooseWeatherStation.Location = new System.Drawing.Point(217, 68);
             this.labelChooseWeatherStation.Name = "labelChooseWeatherStation";
             this.labelChooseWeatherStation.Size = new System.Drawing.Size(53, 12);
             this.labelChooseWeatherStation.TabIndex = 6;
@@ -136,9 +150,9 @@
             "无",
             "有降雨时的数据",
             "每个小时一条数据"});
-            this.comboBoxCondition.Location = new System.Drawing.Point(55, 102);
+            this.comboBoxCondition.Location = new System.Drawing.Point(28, 102);
             this.comboBoxCondition.Name = "comboBoxCondition";
-            this.comboBoxCondition.Size = new System.Drawing.Size(150, 20);
+            this.comboBoxCondition.Size = new System.Drawing.Size(185, 20);
             this.comboBoxCondition.TabIndex = 5;
             // 
             // comboBoxChooseWeatherStation
@@ -148,17 +162,20 @@
             this.comboBoxChooseWeatherStation.Items.AddRange(new object[] {
             "中央绿廊微气象监测",
             "云谷10号楼微气象监测",
-            "康定和园微气象监测"});
-            this.comboBoxChooseWeatherStation.Location = new System.Drawing.Point(55, 63);
+            "康定和园微气象监测",
+            "同德佳苑东侧雨水花园监测"});
+            this.comboBoxChooseWeatherStation.Location = new System.Drawing.Point(28, 63);
             this.comboBoxChooseWeatherStation.Name = "comboBoxChooseWeatherStation";
-            this.comboBoxChooseWeatherStation.Size = new System.Drawing.Size(150, 20);
+            this.comboBoxChooseWeatherStation.Size = new System.Drawing.Size(185, 20);
             this.comboBoxChooseWeatherStation.TabIndex = 4;
             // 
             // panelRetrieveShowData
             // 
+            this.panelRetrieveShowData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelRetrieveShowData.Controls.Add(this.dataGridViewRetrieve);
             this.panelRetrieveShowData.Controls.Add(this.buttonRetrieveReturn);
-            this.panelRetrieveShowData.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelRetrieveShowData.Location = new System.Drawing.Point(0, 169);
             this.panelRetrieveShowData.Name = "panelRetrieveShowData";
             this.panelRetrieveShowData.Size = new System.Drawing.Size(1114, 564);
@@ -185,29 +202,64 @@
             this.buttonRetrieveReturn.Text = "返回";
             this.buttonRetrieveReturn.UseVisualStyleBackColor = true;
             // 
+            // buttonGenerateReport
+            // 
+            this.buttonGenerateReport.AutoSize = true;
+            this.buttonGenerateReport.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonGenerateReport.Location = new System.Drawing.Point(967, 63);
+            this.buttonGenerateReport.Name = "buttonGenerateReport";
+            this.buttonGenerateReport.Size = new System.Drawing.Size(111, 23);
+            this.buttonGenerateReport.TabIndex = 3;
+            this.buttonGenerateReport.Text = "生成报表";
+            this.buttonGenerateReport.UseVisualStyleBackColor = false;
+            this.buttonGenerateReport.Click += new System.EventHandler(this.button2_Click);
+            // 
             // dateTimePickerRetrieveEnd
             // 
             this.dateTimePickerRetrieveEnd.CustomFormat = "yyyy年M月d日 HH:mm";
             this.dateTimePickerRetrieveEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerRetrieveEnd.Location = new System.Drawing.Point(515, 64);
-            this.dateTimePickerRetrieveEnd.MaxDate = new System.DateTime(2016, 6, 21, 0, 0, 0, 0);
-            this.dateTimePickerRetrieveEnd.MinDate = new System.DateTime(2016, 5, 1, 0, 0, 0, 0);
+            this.dateTimePickerRetrieveEnd.MaxDate = new System.DateTime(2111, 11, 11, 0, 0, 0, 0);
+            this.dateTimePickerRetrieveEnd.MinDate = new System.DateTime(2015, 9, 15, 0, 0, 0, 0);
             this.dateTimePickerRetrieveEnd.Name = "dateTimePickerRetrieveEnd";
             this.dateTimePickerRetrieveEnd.Size = new System.Drawing.Size(161, 21);
             this.dateTimePickerRetrieveEnd.TabIndex = 2;
-            this.dateTimePickerRetrieveEnd.Value = new System.DateTime(2016, 6, 18, 0, 0, 0, 0);
+            this.dateTimePickerRetrieveEnd.Value = new System.DateTime(2016, 6, 28, 0, 0, 0, 0);
+            // 
+            // buttonChooseDirectory
+            // 
+            this.buttonChooseDirectory.AutoSize = true;
+            this.buttonChooseDirectory.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonChooseDirectory.Location = new System.Drawing.Point(737, 63);
+            this.buttonChooseDirectory.Name = "buttonChooseDirectory";
+            this.buttonChooseDirectory.Size = new System.Drawing.Size(111, 23);
+            this.buttonChooseDirectory.TabIndex = 2;
+            this.buttonChooseDirectory.Text = "选择报表存放目录";
+            this.buttonChooseDirectory.UseVisualStyleBackColor = false;
+            this.buttonChooseDirectory.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // labelChooseDirectory
+            // 
+            this.labelChooseDirectory.AutoSize = true;
+            this.labelChooseDirectory.BackColor = System.Drawing.Color.Transparent;
+            this.labelChooseDirectory.ForeColor = System.Drawing.SystemColors.Info;
+            this.labelChooseDirectory.Location = new System.Drawing.Point(739, 48);
+            this.labelChooseDirectory.Name = "labelChooseDirectory";
+            this.labelChooseDirectory.Size = new System.Drawing.Size(77, 12);
+            this.labelChooseDirectory.TabIndex = 1;
+            this.labelChooseDirectory.Text = "报表存储目录";
             // 
             // dateTimePickerRetrieveBegin
             // 
             this.dateTimePickerRetrieveBegin.CustomFormat = "yyyy年M月d日 HH:mm";
             this.dateTimePickerRetrieveBegin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerRetrieveBegin.Location = new System.Drawing.Point(292, 64);
-            this.dateTimePickerRetrieveBegin.MaxDate = new System.DateTime(2016, 6, 17, 0, 0, 0, 0);
-            this.dateTimePickerRetrieveBegin.MinDate = new System.DateTime(2016, 5, 1, 0, 0, 0, 0);
+            this.dateTimePickerRetrieveBegin.Location = new System.Drawing.Point(301, 64);
+            this.dateTimePickerRetrieveBegin.MaxDate = new System.DateTime(2111, 11, 11, 0, 0, 0, 0);
+            this.dateTimePickerRetrieveBegin.MinDate = new System.DateTime(2015, 9, 15, 0, 0, 0, 0);
             this.dateTimePickerRetrieveBegin.Name = "dateTimePickerRetrieveBegin";
             this.dateTimePickerRetrieveBegin.Size = new System.Drawing.Size(161, 21);
             this.dateTimePickerRetrieveBegin.TabIndex = 1;
-            this.dateTimePickerRetrieveBegin.Value = new System.DateTime(2016, 6, 17, 0, 0, 0, 0);
+            this.dateTimePickerRetrieveBegin.Value = new System.DateTime(2016, 6, 28, 0, 0, 0, 0);
             // 
             // labelRetrieve
             // 
@@ -220,31 +272,18 @@
             this.labelRetrieve.TabIndex = 0;
             this.labelRetrieve.Text = "微气象监测系统数据查询";
             // 
-            // buttonMain
-            // 
-            this.buttonMain.BackgroundImage = global::Smeshlink海绵城市Client.Properties.Resources.未标题_1;
-            this.buttonMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMain.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonMain.ForeColor = System.Drawing.Color.White;
-            this.buttonMain.Location = new System.Drawing.Point(526, 108);
-            this.buttonMain.Name = "buttonMain";
-            this.buttonMain.Size = new System.Drawing.Size(125, 38);
-            this.buttonMain.TabIndex = 9;
-            this.buttonMain.Text = "开始查询";
-            this.buttonMain.UseVisualStyleBackColor = true;
-            this.buttonMain.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1114, 733);
             this.Controls.Add(this.panelRetrieve);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "DataRetrieve";
             this.panelRetrieve.ResumeLayout(false);
             this.panelRetrieve.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelRetrieveShowData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRetrieve)).EndInit();
             this.ResumeLayout(false);
@@ -267,6 +306,8 @@
         private System.Windows.Forms.ComboBox comboBoxCondition;
         private System.Windows.Forms.Label labelCondition;
         private System.Windows.Forms.Button buttonMain;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
