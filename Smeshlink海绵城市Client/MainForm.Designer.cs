@@ -1,6 +1,6 @@
 ﻿namespace Smeshlink海绵城市Client
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelRetrieve = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.buttonMain = new System.Windows.Forms.Button();
             this.labelCondition = new System.Windows.Forms.Label();
             this.labelChooseWeatherStation = new System.Windows.Forms.Label();
             this.comboBoxCondition = new System.Windows.Forms.ComboBox();
@@ -58,7 +57,6 @@
             this.panelRetrieve.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelRetrieve.Controls.Add(this.pictureBox1);
             this.panelRetrieve.Controls.Add(this.button1);
-            this.panelRetrieve.Controls.Add(this.buttonMain);
             this.panelRetrieve.Controls.Add(this.labelCondition);
             this.panelRetrieve.Controls.Add(this.labelChooseWeatherStation);
             this.panelRetrieve.Controls.Add(this.comboBoxCondition);
@@ -103,29 +101,12 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // buttonMain
-            // 
-            this.buttonMain.BackgroundImage = global::Smeshlink海绵城市Client.Properties.Resources.未标题_1;
-            this.buttonMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonMain.Enabled = false;
-            this.buttonMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMain.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonMain.ForeColor = System.Drawing.Color.White;
-            this.buttonMain.Location = new System.Drawing.Point(967, 12);
-            this.buttonMain.Name = "buttonMain";
-            this.buttonMain.Size = new System.Drawing.Size(125, 38);
-            this.buttonMain.TabIndex = 9;
-            this.buttonMain.Text = "开始查询";
-            this.buttonMain.UseVisualStyleBackColor = true;
-            this.buttonMain.Visible = false;
-            this.buttonMain.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // labelCondition
             // 
             this.labelCondition.AutoSize = true;
             this.labelCondition.BackColor = System.Drawing.Color.Transparent;
             this.labelCondition.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelCondition.Location = new System.Drawing.Point(217, 105);
+            this.labelCondition.Location = new System.Drawing.Point(26, 124);
             this.labelCondition.Name = "labelCondition";
             this.labelCondition.Size = new System.Drawing.Size(53, 12);
             this.labelCondition.TabIndex = 7;
@@ -136,7 +117,7 @@
             this.labelChooseWeatherStation.AutoSize = true;
             this.labelChooseWeatherStation.BackColor = System.Drawing.Color.Transparent;
             this.labelChooseWeatherStation.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelChooseWeatherStation.Location = new System.Drawing.Point(217, 68);
+            this.labelChooseWeatherStation.Location = new System.Drawing.Point(26, 41);
             this.labelChooseWeatherStation.Name = "labelChooseWeatherStation";
             this.labelChooseWeatherStation.Size = new System.Drawing.Size(53, 12);
             this.labelChooseWeatherStation.TabIndex = 6;
@@ -150,9 +131,9 @@
             "无",
             "有降雨时的数据",
             "每个小时一条数据"});
-            this.comboBoxCondition.Location = new System.Drawing.Point(28, 102);
+            this.comboBoxCondition.Location = new System.Drawing.Point(28, 101);
             this.comboBoxCondition.Name = "comboBoxCondition";
-            this.comboBoxCondition.Size = new System.Drawing.Size(185, 20);
+            this.comboBoxCondition.Size = new System.Drawing.Size(263, 20);
             this.comboBoxCondition.TabIndex = 5;
             // 
             // comboBoxChooseWeatherStation
@@ -164,9 +145,9 @@
             "云谷10号楼微气象监测",
             "康定和园微气象监测",
             "同德佳苑东侧雨水花园监测"});
-            this.comboBoxChooseWeatherStation.Location = new System.Drawing.Point(28, 63);
+            this.comboBoxChooseWeatherStation.Location = new System.Drawing.Point(28, 59);
             this.comboBoxChooseWeatherStation.Name = "comboBoxChooseWeatherStation";
-            this.comboBoxChooseWeatherStation.Size = new System.Drawing.Size(185, 20);
+            this.comboBoxChooseWeatherStation.Size = new System.Drawing.Size(263, 20);
             this.comboBoxChooseWeatherStation.TabIndex = 4;
             // 
             // panelRetrieveShowData
@@ -180,7 +161,6 @@
             this.panelRetrieveShowData.Name = "panelRetrieveShowData";
             this.panelRetrieveShowData.Size = new System.Drawing.Size(1114, 564);
             this.panelRetrieveShowData.TabIndex = 3;
-            this.panelRetrieveShowData.Visible = false;
             // 
             // dataGridViewRetrieve
             // 
@@ -218,7 +198,7 @@
             // 
             this.dateTimePickerRetrieveEnd.CustomFormat = "yyyy年M月d日 HH:mm";
             this.dateTimePickerRetrieveEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerRetrieveEnd.Location = new System.Drawing.Point(515, 64);
+            this.dateTimePickerRetrieveEnd.Location = new System.Drawing.Point(531, 64);
             this.dateTimePickerRetrieveEnd.MaxDate = new System.DateTime(2111, 11, 11, 0, 0, 0, 0);
             this.dateTimePickerRetrieveEnd.MinDate = new System.DateTime(2015, 9, 15, 0, 0, 0, 0);
             this.dateTimePickerRetrieveEnd.Name = "dateTimePickerRetrieveEnd";
@@ -253,7 +233,7 @@
             // 
             this.dateTimePickerRetrieveBegin.CustomFormat = "yyyy年M月d日 HH:mm";
             this.dateTimePickerRetrieveBegin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerRetrieveBegin.Location = new System.Drawing.Point(301, 64);
+            this.dateTimePickerRetrieveBegin.Location = new System.Drawing.Point(329, 64);
             this.dateTimePickerRetrieveBegin.MaxDate = new System.DateTime(2111, 11, 11, 0, 0, 0, 0);
             this.dateTimePickerRetrieveBegin.MinDate = new System.DateTime(2015, 9, 15, 0, 0, 0, 0);
             this.dateTimePickerRetrieveBegin.Name = "dateTimePickerRetrieveBegin";
@@ -268,18 +248,18 @@
             this.labelRetrieve.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.labelRetrieve.Location = new System.Drawing.Point(26, 16);
             this.labelRetrieve.Name = "labelRetrieve";
-            this.labelRetrieve.Size = new System.Drawing.Size(137, 12);
+            this.labelRetrieve.Size = new System.Drawing.Size(131, 12);
             this.labelRetrieve.TabIndex = 0;
-            this.labelRetrieve.Text = "微气象监测系统数据查询";
+            this.labelRetrieve.Text = "Smeshlink数据查询系统";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1114, 733);
             this.Controls.Add(this.panelRetrieve);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "DataRetrieve";
             this.panelRetrieve.ResumeLayout(false);
             this.panelRetrieve.PerformLayout();
@@ -305,7 +285,6 @@
         private System.Windows.Forms.Label labelChooseWeatherStation;
         private System.Windows.Forms.ComboBox comboBoxCondition;
         private System.Windows.Forms.Label labelCondition;
-        private System.Windows.Forms.Button buttonMain;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

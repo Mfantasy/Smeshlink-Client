@@ -10,28 +10,24 @@ namespace Smeshlink海绵城市Client
 {
     class XmlParser
     {
-        public static XmlDocument Xml(Stream s,GateWayType gt)
+        public static XmlDocument Xml(Stream s,GateWayType gt,string gtName)
         {
             XmlDocument x = new XmlDocument();
             x.Load(s);
-            XmlElement root = x.DocumentElement;
-            string name = root.FirstChild.SelectSingleNode("title").InnerText;//云谷10号楼微气象监测
-                 
+            XmlElement root = x.DocumentElement;            
             XmlDocument xdoc = null;
             XmlNodeList xl = null;
             switch (gt)
             {
                 case GateWayType.MXS5000:
-                    xl = root.FirstChild.SelectSingleNode("children").FirstChild.SelectSingleNode("children").SelectNodes("feed");
-                    xdoc = NewXml5000(xl, name);
+                    xl = root.FirstChild.SelectSingleNode("children").SelectNodes("feed");
+                    xdoc = NewXml5000(xl, gtName);
                     break;
                 case GateWayType.MXS1402:
                     xl = root.FirstChild.SelectSingleNode("children").SelectNodes("feed")[1].SelectSingleNode("children").SelectNodes("feed");
-                    xdoc = NewXml1402(xl,name);
-                    break;
-                
+                    xdoc = NewXml1402(xl,gtName);
+                    break;   
             }
-            
             return xdoc;
         }
         static XmlDocument NewXml1402(XmlNodeList xl, string name)
