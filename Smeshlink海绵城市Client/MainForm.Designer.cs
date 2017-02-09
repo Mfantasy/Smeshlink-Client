@@ -161,6 +161,7 @@
             this.panelRetrieveShowData.Name = "panelRetrieveShowData";
             this.panelRetrieveShowData.Size = new System.Drawing.Size(1114, 564);
             this.panelRetrieveShowData.TabIndex = 3;
+            this.panelRetrieveShowData.Visible = false;
             // 
             // dataGridViewRetrieve
             // 
@@ -186,7 +187,7 @@
             // 
             this.buttonGenerateReport.AutoSize = true;
             this.buttonGenerateReport.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonGenerateReport.Location = new System.Drawing.Point(967, 63);
+            this.buttonGenerateReport.Location = new System.Drawing.Point(964, 55);
             this.buttonGenerateReport.Name = "buttonGenerateReport";
             this.buttonGenerateReport.Size = new System.Drawing.Size(111, 23);
             this.buttonGenerateReport.TabIndex = 3;
@@ -198,7 +199,7 @@
             // 
             this.dateTimePickerRetrieveEnd.CustomFormat = "yyyy年M月d日 HH:mm";
             this.dateTimePickerRetrieveEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerRetrieveEnd.Location = new System.Drawing.Point(531, 64);
+            this.dateTimePickerRetrieveEnd.Location = new System.Drawing.Point(528, 56);
             this.dateTimePickerRetrieveEnd.MaxDate = new System.DateTime(2111, 11, 11, 0, 0, 0, 0);
             this.dateTimePickerRetrieveEnd.MinDate = new System.DateTime(2015, 9, 15, 0, 0, 0, 0);
             this.dateTimePickerRetrieveEnd.Name = "dateTimePickerRetrieveEnd";
@@ -210,7 +211,7 @@
             // 
             this.buttonChooseDirectory.AutoSize = true;
             this.buttonChooseDirectory.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonChooseDirectory.Location = new System.Drawing.Point(737, 63);
+            this.buttonChooseDirectory.Location = new System.Drawing.Point(734, 55);
             this.buttonChooseDirectory.Name = "buttonChooseDirectory";
             this.buttonChooseDirectory.Size = new System.Drawing.Size(111, 23);
             this.buttonChooseDirectory.TabIndex = 2;
@@ -223,7 +224,7 @@
             this.labelChooseDirectory.AutoSize = true;
             this.labelChooseDirectory.BackColor = System.Drawing.Color.Transparent;
             this.labelChooseDirectory.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelChooseDirectory.Location = new System.Drawing.Point(739, 48);
+            this.labelChooseDirectory.Location = new System.Drawing.Point(739, 40);
             this.labelChooseDirectory.Name = "labelChooseDirectory";
             this.labelChooseDirectory.Size = new System.Drawing.Size(77, 12);
             this.labelChooseDirectory.TabIndex = 1;
@@ -233,7 +234,7 @@
             // 
             this.dateTimePickerRetrieveBegin.CustomFormat = "yyyy年M月d日 HH:mm";
             this.dateTimePickerRetrieveBegin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerRetrieveBegin.Location = new System.Drawing.Point(329, 64);
+            this.dateTimePickerRetrieveBegin.Location = new System.Drawing.Point(326, 56);
             this.dateTimePickerRetrieveBegin.MaxDate = new System.DateTime(2111, 11, 11, 0, 0, 0, 0);
             this.dateTimePickerRetrieveBegin.MinDate = new System.DateTime(2015, 9, 15, 0, 0, 0, 0);
             this.dateTimePickerRetrieveBegin.Name = "dateTimePickerRetrieveBegin";

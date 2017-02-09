@@ -9,7 +9,14 @@ namespace Smeshlink海绵城市Client.DLL
 {
     class MXS1204 : MX
     {
-     
+        private string temperature;
+
+        public string Temperature
+        {
+            get { return temperature; }
+            set { temperature = value; }
+        }
+
         private string pressure;
 
         public String Pressure

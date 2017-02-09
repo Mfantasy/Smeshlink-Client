@@ -1,20 +1,11 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
-using System.Xml.Serialization;
 using Smeshlink海绵城市Client.DLL;
+using Smeshlink海绵城市Client.Device;
 
 public enum GateWayType
 {
@@ -51,7 +42,8 @@ namespace Smeshlink海绵城市Client
                 }
                 comboBoxChooseWeatherStation.Items.AddRange(listSensors.ToArray());
             }
-            catch (Exception ex) { MessageBox.Show("配置文件载入异常" + ex.Message); this.Close(); }
+            catch (Exception ex) { MessageBox.Show("配置文件载入异常" + ex.Message);
+              }
         }
 
         private DataSet GetMX(Sensor ss, DateTime start, DateTime end)
@@ -67,6 +59,9 @@ namespace Smeshlink海绵城市Client
                 case "MXS1501":
                     mx = new MXS1501();
                     break;
+                case "MXS1201":
+                    mx = new MXS1201();
+                    break;
                 case "MXS1402":
                     mx = new MXS1402();
                     break;
@@ -81,6 +76,12 @@ namespace Smeshlink海绵城市Client
                     break;
                 case "MX7200":
                     mx = new MX7200();
+                    break;
+                case "MX6100":
+                    mx = new MX6100();
+                    break;
+                case "MX8100":
+                    mx = new MX8100();
                     break;
             }
             xdoc = mx.GetXdoc(start, end, ss);
@@ -108,7 +109,7 @@ namespace Smeshlink海绵城市Client
             {
                 if (labelChooseDirectory.Text == "报表存储目录")
                     button1_Click(null, null);
-                ExcelLibrary.DataSetHelper.CreateWorkbook(labelChooseDirectory.Text + "\\" + DateTime.Now.ToString("yyyy年MM月dd日HH时mm分") + "报表.xls", dsWhole);
+                ExcelLibrary.DataSetHelper.CreateWorkbook(labelChooseDirectory.Text + "\\" +comboBoxChooseWeatherStation.Text+dateTimePickerRetrieveBegin.Value.ToString("MMdd")+"至"+dateTimePickerRetrieveEnd.Value.ToString("MMdd") +"表.xls", dsWhole);
                 MessageBox.Show("生成报表成功");
             }
             catch (Exception ex)
@@ -141,11 +142,11 @@ namespace Smeshlink海绵城市Client
                     MessageBox.Show("查询开始时间应小于结束时间");
                     return;
                 }
-                if ((end - start).Days >= 33)
-                {
-                    MessageBox.Show("不允许查询30天以上的数据");
-                    return;
-                }
+                //if ((end - start).Days >= 33)
+                //{
+                //    MessageBox.Show("不允许查询30天以上的数据");
+                //    return;
+                //}
                 panelRetrieveShowData.Visible = false;
                 pictureBox1.Visible = true;
                 buttonGenerateReport.Enabled = false;
@@ -198,7 +199,8 @@ namespace Smeshlink海绵城市Client
                 panelRetrieveShowData.Visible = true;
                
                 Over();
-                MessageBox.Show("查询成功");
+               
+               // MessageBox.Show("查询成功");
             }));
         }
 
