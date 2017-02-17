@@ -24,7 +24,8 @@ namespace Smeshlink海绵城市Client.DLL
             set { time = value; }
         }
         public abstract XmlDocument GetXdoc(DateTime start,DateTime end,Sensor ss);
-        
+
+
 
         public static String Sub(string str)
         {

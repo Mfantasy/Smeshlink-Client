@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Xml;
 using Smeshlink海绵城市Client.DLL;
 using Smeshlink海绵城市Client.Device;
+using System.IO;
 
 public enum GateWayType
 {
@@ -46,11 +47,12 @@ namespace Smeshlink海绵城市Client
               }
         }
 
+        MX mx;
         private DataSet GetMX(Sensor ss, DateTime start, DateTime end)
         {
             DataSet ds = new DataSet();
             XmlDocument xdoc = new XmlDocument();
-            MX mx = null;
+            //MX mx = null;
             switch (ss.Model.ToUpper())
             {
                 case "MXS5000":
@@ -85,6 +87,8 @@ namespace Smeshlink海绵城市Client
                     break;
             }
             xdoc = mx.GetXdoc(start, end, ss);
+            string path = @"C:\Users\mengft\Desktop\t.xml";
+            File.AppendAllText(path, xdoc.InnerXml);
             if (xdoc == null)
                 return null;
             XmlNodeReader xnr = new XmlNodeReader(xdoc);
@@ -247,6 +251,12 @@ namespace Smeshlink海绵城市Client
                 }
             }
             return dsNew;
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            
+
         }
     }
 }

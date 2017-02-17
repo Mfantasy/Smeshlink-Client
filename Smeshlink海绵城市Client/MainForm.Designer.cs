@@ -45,6 +45,7 @@
             this.labelChooseDirectory = new System.Windows.Forms.Label();
             this.dateTimePickerRetrieveBegin = new System.Windows.Forms.DateTimePicker();
             this.labelRetrieve = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panelRetrieve.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelRetrieveShowData.SuspendLayout();
@@ -55,6 +56,7 @@
             // 
             this.panelRetrieve.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelRetrieve.BackgroundImage")));
             this.panelRetrieve.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelRetrieve.Controls.Add(this.button2);
             this.panelRetrieve.Controls.Add(this.pictureBox1);
             this.panelRetrieve.Controls.Add(this.button1);
             this.panelRetrieve.Controls.Add(this.labelCondition);
@@ -253,6 +255,21 @@
             this.labelRetrieve.TabIndex = 0;
             this.labelRetrieve.Text = "Smeshlink数据查询系统";
             // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::Smeshlink海绵城市Client.Properties.Resources.未标题_1;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(453, 92);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(125, 38);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Post到ENNO";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -288,6 +305,7 @@
         private System.Windows.Forms.Label labelCondition;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
