@@ -28,7 +28,7 @@ namespace Smeshlink海绵城市Client
             try
             {
                 XmlDocument xml = new XmlDocument();
-                xml.Load("config");
+                xml.Load("config.xml");
                 XmlNodeList sensors = xml.FirstChild.SelectNodes("sensor");
                 comboBoxChooseWeatherStation.Items.Clear();
                 List<Sensor> listSensors = new List<Sensor>();
@@ -83,11 +83,14 @@ namespace Smeshlink海绵城市Client
                     mx = new MX6100();
                     break;
                 case "MX8100":
+                case "MX8000":
                     mx = new MX8100();
                     break;
+                    
+
             }
             xdoc = mx.GetXdoc(start, end, ss);
-            string path = @"C:\Users\mengft\Desktop\t.xml";
+            string path = @"t.xml";
             File.AppendAllText(path, xdoc.InnerXml);
             if (xdoc == null)
                 return null;
