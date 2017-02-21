@@ -41,7 +41,7 @@ namespace Smeshlink海绵城市Client.DLL
             get { return model; }
             set { model = value; }
         }
-
+        public string SiteWhereId { get; set; }
         public override string ToString()
         {
             return this.Name;

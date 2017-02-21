@@ -39,6 +39,7 @@ namespace Smeshlink海绵城市Client
                     s.Node = item.SelectSingleNode("node").InnerText;
                     s.Gateway = item.SelectSingleNode("gateway").InnerText;
                     s.Model = item.SelectSingleNode("model").InnerText;
+                    s.SiteWhereId = item.SelectSingleNode("sitewhere").InnerText;
                     listSensors.Add(s);
                 }
                 comboBoxChooseWeatherStation.Items.AddRange(listSensors.ToArray());

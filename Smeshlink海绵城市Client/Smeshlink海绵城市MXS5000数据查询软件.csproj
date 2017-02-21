@@ -116,6 +116,7 @@
     <None Include="Resources\未标题-1.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Device\config.xml" />
     <Content Include="Newtonsoft.Json.dll" />
     <Content Include="Resources\1424377706.gif" />
     <Content Include="smeshlink_ICO.ico" />

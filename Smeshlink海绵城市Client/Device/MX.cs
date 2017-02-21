@@ -25,8 +25,9 @@ namespace Smeshlink海绵城市Client.DLL
         }
         public abstract XmlDocument GetXdoc(DateTime start,DateTime end,Sensor ss);
 
+        public abstract void Post();
 
-
+        public string SID { get; set; }
         public static String Sub(string str)
         {
             if (str.Length > 6)

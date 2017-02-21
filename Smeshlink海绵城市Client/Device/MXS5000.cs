@@ -47,6 +47,8 @@ namespace Smeshlink海绵城市Client.DLL
             set { humidity = value; }
         }
 
+        public XmlDocument XDoc { get; set; }
+
         public override XmlDocument GetXdoc(DateTime start,DateTime end,Sensor ss)
         {
             XML x = new XML();
@@ -83,7 +85,24 @@ namespace Smeshlink海绵城市Client.DLL
                 root.AppendChild(feed);
             }
             xdoc.AppendChild(root);
+            this.XDoc = xdoc;
+            SID = ss.SiteWhereId ;
             return xdoc;
+        }
+
+        public override void Post()
+        {
+            
+            //PostS.PostToSW(ss.SiteWhereId, 1, Rain);
+            //PostS.PostToSW(ss.SiteWhereId, 2, Temperature);
+            //PostS.PostToSW(ss.SiteWhereId, 3, Humidity);
+            //PostS.PostToSW(ss.SiteWhereId, 4, WindSpeed);
+            //PostS.PostToSW(ss.SiteWhereId, 5, WindDirection);
+        }
+        void Post1R()
+        {
+            
+            //PostS.PostToSW(SID,1,)
         }
     }
 }
