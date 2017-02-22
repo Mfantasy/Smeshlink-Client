@@ -25,14 +25,26 @@ namespace Smeshlink海绵城市Client.DLL
         }
         public abstract XmlDocument GetXdoc(DateTime start,DateTime end,Sensor ss);
 
-        public abstract void Post();
+        public abstract void Post(DateTime start, DateTime end, Sensor ss);
+
+        public virtual string GetWorkState() { return ""; }
+        public virtual string GetErrorState() { return ""; }
+
+
 
         public string SID { get; set; }
         public static String Sub(string str)
         {
-            if (str.Length > 6)
-                str = str.Substring(0, 5);
-            return str;
+            double result = 0;
+            bool ok = double.TryParse(str, out result);
+            if (ok)
+            {
+                return result.ToString("0.0");
+            }
+            else
+            {
+                return str;
+            }           
         }
     }
 }

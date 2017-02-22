@@ -22,7 +22,7 @@ namespace Smeshlink海绵城市Client
             LoadConfig();
             Initial();    
         }
-
+        List<Sensor> listSensors;
         private void LoadConfig()
         {
             try
@@ -31,7 +31,7 @@ namespace Smeshlink海绵城市Client
                 xml.Load("config.xml");
                 XmlNodeList sensors = xml.FirstChild.SelectNodes("sensor");
                 comboBoxChooseWeatherStation.Items.Clear();
-                List<Sensor> listSensors = new List<Sensor>();
+                listSensors = new List<Sensor>();
                 foreach (XmlNode item in sensors)
                 {
                     Sensor s = new Sensor();
@@ -90,9 +90,7 @@ namespace Smeshlink海绵城市Client
                     
 
             }
-            xdoc = mx.GetXdoc(start, end, ss);
-            string path = @"t.xml";
-            File.AppendAllText(path, xdoc.InnerXml);
+            xdoc = mx.GetXdoc(start, end, ss);         
             if (xdoc == null)
                 return null;
             XmlNodeReader xnr = new XmlNodeReader(xdoc);
@@ -259,8 +257,40 @@ namespace Smeshlink海绵城市Client
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            
+            mx = new MXS5000();                                   
+            Thread th = new Thread(BackgroundPost);
+            th.IsBackground = true;
+            th.Start();
+            System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
+            t.Interval = 3 * 1000;
+            t.Tick += T_Tick;
+            t.Start();
+        }
 
+        private void T_Tick(object sender, EventArgs e)
+        {
+            label3.Text = currentSensor;
+            label1.Text = mx.GetWorkState();
+            label2.Text = mx.GetErrorState();
+        }
+        string currentSensor = "";
+        void BackgroundPost()
+        {
+            DateTime start = dateTimePickerRetrieveBegin.Value;
+            DateTime end = dateTimePickerRetrieveEnd.Value;         
+            foreach (Sensor item in listSensors)
+            {
+                currentSensor = item.Name;
+                DateTime st = start;
+                DateTime et = start.AddDays(1);
+                while (et < end)
+                {
+                    mx.Post(st, et, item);
+                    st = et;
+                    et = et.AddDays(1);
+                }
+            }
+            MessageBox.Show("PostEnd");
         }
     }
 }

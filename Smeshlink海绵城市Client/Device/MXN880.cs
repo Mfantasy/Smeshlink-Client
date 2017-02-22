@@ -59,7 +59,7 @@ namespace Smeshlink海绵城市Client.DLL
             return xdoc;
         }
         public XmlDocument XDoc { get; set; }
-        public override void Post()
+        public override void Post(DateTime start, DateTime end, Sensor ss)
         {
             throw new NotImplementedException();
         }

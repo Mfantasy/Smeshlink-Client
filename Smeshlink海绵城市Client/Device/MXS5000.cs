@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace Smeshlink海绵城市Client.DLL
@@ -46,19 +47,18 @@ namespace Smeshlink海绵城市Client.DLL
             get { return humidity; }
             set { humidity = value; }
         }
-
-        public XmlDocument XDoc { get; set; }
-
+ 
         public override XmlDocument GetXdoc(DateTime start,DateTime end,Sensor ss)
         {
             XML x = new XML();
             XmlDocument xdoc = new XmlDocument();
-            XmlElement root = xdoc.CreateElement("sensor");
+            XmlElement root = xdoc.CreateElement("sensor");          
             XmlNodeList rains = x.GetXmlNodeList(start, end, ss,"rain");
             XmlNodeList windSpeeds = x.GetXmlNodeList(start, end, ss, "windspeed");
             XmlNodeList windDirections = x.GetXmlNodeList(start, end, ss, "winddirection");
             XmlNodeList temperatures = x.GetXmlNodeList(start, end, ss, "airtemp");
             XmlNodeList humiditys = x.GetXmlNodeList(start, end, ss, "airhumid");
+       
             if (rains == null)
                 return null;
             for (int i = 0; i < rains.Count; i++)
@@ -84,25 +84,72 @@ namespace Smeshlink海绵城市Client.DLL
                 feed.AppendChild(time);
                 root.AppendChild(feed);
             }
-            xdoc.AppendChild(root);
-            this.XDoc = xdoc;
+            xdoc.AppendChild(root);            
             SID = ss.SiteWhereId ;
             return xdoc;
         }
 
-        public override void Post()
+        public override void Post(DateTime start, DateTime end, Sensor ss)
         {
-            
-            //PostS.PostToSW(ss.SiteWhereId, 1, Rain);
-            //PostS.PostToSW(ss.SiteWhereId, 2, Temperature);
-            //PostS.PostToSW(ss.SiteWhereId, 3, Humidity);
-            //PostS.PostToSW(ss.SiteWhereId, 4, WindSpeed);
-            //PostS.PostToSW(ss.SiteWhereId, 5, WindDirection);
+            SID = ss.SiteWhereId;
+            XML x = new XML();
+            try
+            {
+                XmlNodeList rains = x.GetXmlNodeList(start, end, ss, "rain");
+                XmlNodeList windSpeeds = x.GetXmlNodeList(start, end, ss, "windspeed");
+                XmlNodeList windDirections = x.GetXmlNodeList(start, end, ss, "winddirection");
+                XmlNodeList temperatures = x.GetXmlNodeList(start, end, ss, "airtemp");
+                XmlNodeList humiditys = x.GetXmlNodeList(start, end, ss, "airhumid");
+                current = "雨量";
+                BeginPost(rains, 1);
+                current = "风速";
+                BeginPost(windSpeeds, 4);
+                current = "风向";
+                BeginPost(windDirections, 5);
+                current = "温度";
+                BeginPost(temperatures, 2);
+                current = "湿度";
+                BeginPost(humiditys, 3);
+            }
+            catch (Exception ex)
+            {
+                error += ex.Message + "\r\n";
+                //Console.WriteLine(ex.Message + "\r\n" + ex.StackTrace);
+                //MessageBox.Show(ex.Message + "\r\n" + ex.StackTrace);
+            }         
         }
-        void Post1R()
+        void BeginPost(XmlNodeList list,int index)
         {
-            
-            //PostS.PostToSW(SID,1,)
+            if (list == null)
+                return;
+            foreach (XmlNode item in list)
+            {
+                string value = Sub(item.InnerText);
+                DateTime time = DateTime.Parse(item.Attributes["at"].Value);
+                timeStr = time.ToString();
+                try
+                {
+                    PostS.PostToSW(SID, index, value, time);
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine(ex.Message);                    
+                    error += ex.Message + "\r\n";
+                }                
+            }
+        }
+        string timeStr = "";
+        string current = "";
+        string error = "";
+
+        public override string GetErrorState()
+        {
+            return error;
+        }
+
+        public override string GetWorkState()
+        {
+            return current + "\t" + timeStr;
         }
     }
 }

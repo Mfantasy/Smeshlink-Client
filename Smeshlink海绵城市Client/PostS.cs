@@ -19,24 +19,18 @@ namespace Smeshlink海绵城市Client
                 date = date.ToUniversalTime();
             return (date - UnixTime).TotalMilliseconds;
         }
-        static bool isPostBefore = bool.Parse(ConfigurationManager.AppSettings["Post到原服务器"]);
-        static bool isPostAfter = bool.Parse(ConfigurationManager.AppSettings["Post新服务器"]);
-        public static void PostToSW(string deviceId, int index, string data)
+        //static bool isPostBefore = bool.Parse(ConfigurationManager.AppSettings["Post到原服务器"]);
+        //static bool isPostAfter = bool.Parse(ConfigurationManager.AppSettings["Post新服务器"]);
+        public static void PostToSW(string deviceId, int index, string data,DateTime dtime)
         {
-            string postData = GetJson(deviceId, index.ToString(), data);
-            if (isPostBefore)
-            {
+            string postData = GetJson(deviceId, index.ToString(), data,dtime);           
                 RequestPost(postUrl, postData);
-            }
-            if (isPostAfter)
-            {
-                RequestPost(postUrl2, postData);
-            }
+           
         }
 
-        public static string GetJson(string deviceId, string index, string data)
+        public static string GetJson(string deviceId, string index, string data,DateTime dtime)
         {
-            string time = ((long)ToUnixTimestamp(DateTime.Now)).ToString();
+            string time = ((long)ToUnixTimestamp(dtime)).ToString();
             JObject jobj = new JObject();
             jobj.Add("deviceId", deviceId);
             jobj.Add("attributeIndex", index);
