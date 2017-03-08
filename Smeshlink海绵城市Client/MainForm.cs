@@ -20,7 +20,7 @@ namespace Smeshlink海绵城市Client
         {
             InitializeComponent();
             LoadConfig();
-            Initial();    
+            Initial();
         }
         List<Sensor> listSensors;
         private void LoadConfig()
@@ -44,8 +44,10 @@ namespace Smeshlink海绵城市Client
                 }
                 comboBoxChooseWeatherStation.Items.AddRange(listSensors.ToArray());
             }
-            catch (Exception ex) { MessageBox.Show("配置文件载入异常" + ex.Message);
-              }
+            catch (Exception ex)
+            {
+                MessageBox.Show("配置文件载入异常" + ex.Message);
+            }
         }
 
         MX mx;
@@ -87,10 +89,10 @@ namespace Smeshlink海绵城市Client
                 case "MX8000":
                     mx = new MX8100();
                     break;
-                    
+
 
             }
-            xdoc = mx.GetXdoc(start, end, ss);         
+            xdoc = mx.GetXdoc(start, end, ss);
             if (xdoc == null)
                 return null;
             XmlNodeReader xnr = new XmlNodeReader(xdoc);
@@ -115,7 +117,7 @@ namespace Smeshlink海绵城市Client
             {
                 if (labelChooseDirectory.Text == "报表存储目录")
                     button1_Click(null, null);
-                ExcelLibrary.DataSetHelper.CreateWorkbook(labelChooseDirectory.Text + "\\" +comboBoxChooseWeatherStation.Text+dateTimePickerRetrieveBegin.Value.ToString("MMdd")+"至"+dateTimePickerRetrieveEnd.Value.ToString("MMdd") +"表.xls", dsWhole);
+                ExcelLibrary.DataSetHelper.CreateWorkbook(labelChooseDirectory.Text + "\\" + comboBoxChooseWeatherStation.Text + dateTimePickerRetrieveBegin.Value.ToString("MMdd") + "至" + dateTimePickerRetrieveEnd.Value.ToString("MMdd") + "表.xls", dsWhole);
                 MessageBox.Show("生成报表成功");
             }
             catch (Exception ex)
@@ -163,7 +165,7 @@ namespace Smeshlink海绵城市Client
                 IsWeatherStation = (ss.Model.ToUpper() == "MXS5000");
 
                 string gatewayId = String.Empty;
-                
+
                 OverDelegate overDel = Over;
                 ThreadPool.QueueUserWorkItem(new WaitCallback((o) =>
                 {
@@ -203,15 +205,15 @@ namespace Smeshlink海绵城市Client
                     ds = ChooseData(comboBoxCondition.Text, dsWhole);
                 dataGridViewRetrieve.DataSource = ds.Tables[0];
                 panelRetrieveShowData.Visible = true;
-               
+
                 Over();
-               
-               // MessageBox.Show("查询成功");
+
+                // MessageBox.Show("查询成功");
             }));
         }
 
-        DataSet dsWhole;Boolean IsWeatherStation;
-    
+        DataSet dsWhole; Boolean IsWeatherStation;
+
 
         public DataSet ChooseData(string condition, DataSet ds)
         {
@@ -257,7 +259,7 @@ namespace Smeshlink海绵城市Client
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            mx = new MXS5000();                                   
+            mx = new MXS5000();
             Thread th = new Thread(BackgroundPost);
             th.IsBackground = true;
             th.Start();
@@ -274,23 +276,85 @@ namespace Smeshlink海绵城市Client
             label2.Text = mx.GetErrorState();
         }
         string currentSensor = "";
+
+        class TimeGroup
+        {
+            public DateTime Start { get; set; }
+            public DateTime End { get; set; }
+        }
+
         void BackgroundPost()
         {
-            DateTime start = dateTimePickerRetrieveBegin.Value;
-            DateTime end = dateTimePickerRetrieveEnd.Value;         
-            foreach (Sensor item in listSensors)
+            List<TimeGroup> timeList = new List<TimeGroup>();
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/6/16 0:00:00"), End = DateTime.Parse("2016/7/1 0:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/7/1 0:00:00"), End = DateTime.Parse("2016/7/5 9:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/7/8 10:00:00"), End = DateTime.Parse("2016/7/8 14:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/7/14 0:00:00"), End = DateTime.Parse("2016/7/26 19:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/7/30 23:00:00"), End = DateTime.Parse("2016/8/1 0:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/8/7 12:00:00"), End = DateTime.Parse("2016/8/9 21:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/8/17 6:00:00"), End = DateTime.Parse("2016/8/19 14:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/8/25 21:00:00"), End = DateTime.Parse("2016/8/28 2:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/8/30 23:00:00"), End = DateTime.Parse("2016/9/1 0:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/9/29 23:00:00"), End = DateTime.Parse("2016/10/1 0:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/10/29 23:00:00"), End = DateTime.Parse("2016/11/1 0:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/11/20 21:00:00"), End = DateTime.Parse("2016/11/22 10:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/11/25 14:00:00"), End = DateTime.Parse("2016/11/26 23:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/11/29 23:00:00"), End = DateTime.Parse("2016/12/19 21:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2017/1/16 22:00:00"), End = DateTime.Parse("2017/1/17 11:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2017/1/24 18:00:00"), End = DateTime.Parse("2017/2/7 17:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2017/2/11 22:00:00"), End = DateTime.Parse("2017/2/12 17:00:00") });
+            timeList.Add(new TimeGroup() { Start = DateTime.Parse("2017/2/17 20:00:00"), End = DateTime.Parse("2017/3/7 10:00:00") });
+
+
+            foreach (var time in timeList)
             {
-                currentSensor = item.Name;
-                DateTime st = start;
-                DateTime et = start.AddDays(1);
-                while (et < end)
+                DateTime start = time.Start;
+                DateTime end = time.End;
+                foreach (Sensor item in listSensors)
                 {
-                    mx.Post(st, et, item);
-                    st = et;
-                    et = et.AddDays(1);
+                    GetMx(item);
+                    currentSensor = item.Name;                                                                                
+                    mx.Post(start, end, item);                                                            
                 }
             }
-            MessageBox.Show("PostEnd");
+        }
+
+        private void GetMx(Sensor item)
+        {
+            switch (item.Model.ToUpper())
+            {
+                case "MXS5000":
+                    mx = new MXS5000();
+                    break;
+                case "MXS1501":
+                    mx = new MXS1501();
+                    break;
+                case "MXS1201":
+                    mx = new MXS1201();
+                    break;
+                case "MXS1402":
+                    mx = new MXS1402();
+                    break;
+                case "MXS1204":
+                    mx = new MXS1204();
+                    break;
+                case "MXN880":
+                    mx = new MXN880();
+                    break;
+                case "MX9000":
+                    mx = new MX9000();
+                    break;
+                case "MX7200":
+                    mx = new MX7200();
+                    break;
+                case "MX6100":
+                    mx = new MX6100();
+                    break;
+                case "MX8100":
+                case "MX8000":
+                    mx = new MX8100();
+                    break;
+            }
         }
     }
 }

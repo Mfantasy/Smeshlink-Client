@@ -62,13 +62,11 @@ namespace Smeshlink海绵城市Client.DLL
                 root.AppendChild(feed);
             }
             xdoc.AppendChild(root);
-            this.XDoc = XDoc;
+            
             return xdoc;
         }
-        public XmlDocument XDoc { get; set; }
         public override void Post(DateTime start, DateTime end, Sensor ss)
         {
-            throw new NotImplementedException();
         }
     }
 }

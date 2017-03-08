@@ -35,7 +35,6 @@ namespace Smeshlink海绵城市Client.Device
                 time.InnerText = DateTime.Parse(statuss.Item(i).Attributes["at"].Value).ToString();
                 status.InnerText = statuss.Item(i).InnerText;
                 name.InnerText = ss.Name;
-
                 feed.AppendChild(name); feed.AppendChild(status); feed.AppendChild(time);
                 root.AppendChild(feed);
             }

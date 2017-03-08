@@ -30,6 +30,7 @@ namespace Smeshlink海绵城市Client.DLL
             xdoc.Load(s);
             XmlElement root = xdoc.DocumentElement;
             XmlNode data = root.FirstChild.SelectSingleNode("data");
+
             if (data == null)
                 return null;
             //.SelectNodes("entry")[i].Attributes["at"].Value;

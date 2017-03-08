@@ -50,14 +50,10 @@ namespace Smeshlink海绵城市Client.DLL
                 feed.AppendChild(name); feed.AppendChild(humid);feed.AppendChild(humtemp); feed.AppendChild(time);
                 root.AppendChild(feed);
             }
-            xdoc.AppendChild(root);
-            this.XDoc = XDoc;
+            xdoc.AppendChild(root);            
             return xdoc;
         }
-        public XmlDocument XDoc { get; set; }
         public override void Post(DateTime start, DateTime end, Sensor ss)
-        {
-            throw new NotImplementedException();
-        }
+        { }
     }
 }

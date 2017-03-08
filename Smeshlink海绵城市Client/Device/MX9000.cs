@@ -60,14 +60,64 @@ namespace Smeshlink海绵城市Client.DLL
                 feed.AppendChild(name); feed.AppendChild(waterLevel);feed.AppendChild(flow);feed.AppendChild(temp); feed.AppendChild(time);
                 root.AppendChild(feed);
             }
-            xdoc.AppendChild(root);
-            this.XDoc = XDoc;
+            xdoc.AppendChild(root);            
             return xdoc;
         }
-        public XmlDocument XDoc { get; set; }
         public override void Post(DateTime start, DateTime end, Sensor ss)
         {
-            throw new NotImplementedException();
+            SID = ss.SiteWhereId;
+            XML x = new XML();
+            try
+            {
+                XmlNodeList waterLevels = x.GetXmlNodeList(start, end, ss, "waterLevel");
+                XmlNodeList flows = x.GetXmlNodeList(start, end, ss, "flow");
+                XmlNodeList temps = x.GetXmlNodeList(start, end, ss, "temp");
+                current = "液位";
+                BeginPost(waterLevels, 1);
+                current = "流量";
+                BeginPost(flows, 2);
+                current = "温度";
+                BeginPost(temps, 3);            
+            }
+            catch (Exception ex)
+            {
+                error += ex.Message + "\r\n";
+                //Console.WriteLine(ex.Message + "\r\n" + ex.StackTrace);
+                //MessageBox.Show(ex.Message + "\r\n" + ex.StackTrace);
+            }
+        }
+        void BeginPost(XmlNodeList list, int index)
+        {
+            if (list == null)
+                return;
+            foreach (XmlNode item in list)
+            {
+                string value = Sub(item.InnerText);
+                DateTime time = DateTime.Parse(item.Attributes["at"].Value);
+                timeStr = time.ToString();
+                try
+                {
+                    PostS.PostToSW(SID, index, value, time);
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine(ex.Message);                    
+                    error += ex.Message + "\r\n";
+                }
+            }
+        }
+        string timeStr = "";
+        string current = "";
+        string error = "";
+
+        public override string GetErrorState()
+        {
+            return error;
+        }
+
+        public override string GetWorkState()
+        {
+            return current + "\t" + timeStr;
         }
     }
 }
