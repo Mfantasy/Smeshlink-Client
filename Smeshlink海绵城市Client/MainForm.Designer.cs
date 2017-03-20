@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelRetrieve = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -46,9 +49,6 @@
             this.labelChooseDirectory = new System.Windows.Forms.Label();
             this.dateTimePickerRetrieveBegin = new System.Windows.Forms.DateTimePicker();
             this.labelRetrieve = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panelRetrieve.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelRetrieveShowData.SuspendLayout();
@@ -81,8 +81,41 @@
             this.panelRetrieve.Controls.Add(this.labelRetrieve);
             this.panelRetrieve.Location = new System.Drawing.Point(0, 0);
             this.panelRetrieve.Name = "panelRetrieve";
-            this.panelRetrieve.Size = new System.Drawing.Size(1114, 733);
+            this.panelRetrieve.Size = new System.Drawing.Size(906, 637);
             this.panelRetrieve.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(238, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 12);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "当前执行传感器";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(324, 151);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "错误记录";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(28, 151);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "执行进度";
             // 
             // button2
             // 
@@ -91,7 +124,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(453, 92);
+            this.button2.Location = new System.Drawing.Point(326, 92);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 38);
             this.button2.TabIndex = 12;
@@ -118,7 +151,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(638, 92);
+            this.button1.Location = new System.Drawing.Point(486, 92);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 38);
             this.button1.TabIndex = 10;
@@ -184,7 +217,7 @@
             this.panelRetrieveShowData.Controls.Add(this.buttonRetrieveReturn);
             this.panelRetrieveShowData.Location = new System.Drawing.Point(0, 169);
             this.panelRetrieveShowData.Name = "panelRetrieveShowData";
-            this.panelRetrieveShowData.Size = new System.Drawing.Size(1114, 564);
+            this.panelRetrieveShowData.Size = new System.Drawing.Size(906, 468);
             this.panelRetrieveShowData.TabIndex = 3;
             this.panelRetrieveShowData.Visible = false;
             // 
@@ -196,7 +229,7 @@
             this.dataGridViewRetrieve.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewRetrieve.Name = "dataGridViewRetrieve";
             this.dataGridViewRetrieve.RowTemplate.Height = 23;
-            this.dataGridViewRetrieve.Size = new System.Drawing.Size(1114, 564);
+            this.dataGridViewRetrieve.Size = new System.Drawing.Size(906, 468);
             this.dataGridViewRetrieve.TabIndex = 0;
             // 
             // buttonRetrieveReturn
@@ -212,7 +245,7 @@
             // 
             this.buttonGenerateReport.AutoSize = true;
             this.buttonGenerateReport.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonGenerateReport.Location = new System.Drawing.Point(964, 55);
+            this.buttonGenerateReport.Location = new System.Drawing.Point(787, 55);
             this.buttonGenerateReport.Name = "buttonGenerateReport";
             this.buttonGenerateReport.Size = new System.Drawing.Size(111, 23);
             this.buttonGenerateReport.TabIndex = 3;
@@ -224,7 +257,7 @@
             // 
             this.dateTimePickerRetrieveEnd.CustomFormat = "yyyy年M月d日 HH:mm";
             this.dateTimePickerRetrieveEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerRetrieveEnd.Location = new System.Drawing.Point(528, 56);
+            this.dateTimePickerRetrieveEnd.Location = new System.Drawing.Point(486, 57);
             this.dateTimePickerRetrieveEnd.MaxDate = new System.DateTime(2111, 11, 11, 0, 0, 0, 0);
             this.dateTimePickerRetrieveEnd.MinDate = new System.DateTime(2015, 9, 15, 0, 0, 0, 0);
             this.dateTimePickerRetrieveEnd.Name = "dateTimePickerRetrieveEnd";
@@ -236,7 +269,7 @@
             // 
             this.buttonChooseDirectory.AutoSize = true;
             this.buttonChooseDirectory.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonChooseDirectory.Location = new System.Drawing.Point(734, 55);
+            this.buttonChooseDirectory.Location = new System.Drawing.Point(660, 56);
             this.buttonChooseDirectory.Name = "buttonChooseDirectory";
             this.buttonChooseDirectory.Size = new System.Drawing.Size(111, 23);
             this.buttonChooseDirectory.TabIndex = 2;
@@ -249,7 +282,7 @@
             this.labelChooseDirectory.AutoSize = true;
             this.labelChooseDirectory.BackColor = System.Drawing.Color.Transparent;
             this.labelChooseDirectory.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelChooseDirectory.Location = new System.Drawing.Point(739, 40);
+            this.labelChooseDirectory.Location = new System.Drawing.Point(668, 40);
             this.labelChooseDirectory.Name = "labelChooseDirectory";
             this.labelChooseDirectory.Size = new System.Drawing.Size(77, 12);
             this.labelChooseDirectory.TabIndex = 1;
@@ -259,7 +292,7 @@
             // 
             this.dateTimePickerRetrieveBegin.CustomFormat = "yyyy年M月d日 HH:mm";
             this.dateTimePickerRetrieveBegin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerRetrieveBegin.Location = new System.Drawing.Point(326, 56);
+            this.dateTimePickerRetrieveBegin.Location = new System.Drawing.Point(307, 57);
             this.dateTimePickerRetrieveBegin.MaxDate = new System.DateTime(2111, 11, 11, 0, 0, 0, 0);
             this.dateTimePickerRetrieveBegin.MinDate = new System.DateTime(2015, 9, 15, 0, 0, 0, 0);
             this.dateTimePickerRetrieveBegin.Name = "dateTimePickerRetrieveBegin";
@@ -278,44 +311,11 @@
             this.labelRetrieve.TabIndex = 0;
             this.labelRetrieve.Text = "Smeshlink数据查询系统";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(28, 151);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "执行进度";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(324, 151);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "错误记录";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(238, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 12);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "当前执行传感器";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 733);
+            this.ClientSize = new System.Drawing.Size(906, 637);
             this.Controls.Add(this.panelRetrieve);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";

@@ -17,6 +17,11 @@ namespace Smeshlink海绵城市Client.DLL
             set { waterLevel = value; }
         }
 
+
+
+
+
+        string rec = "";
         public override XmlDocument GetXdoc(DateTime start, DateTime end, Sensor ss)
         {
             XML x = new XML();
@@ -31,9 +36,18 @@ namespace Smeshlink海绵城市Client.DLL
                 XmlElement name = xdoc.CreateElement("名称");
                 XmlElement time = xdoc.CreateElement("时间");
                 XmlElement waterLevel = xdoc.CreateElement("液位");
-
                 time.InnerText = DateTime.Parse(waterLevels.Item(i).Attributes["at"].Value).ToString();
-                waterLevel.InnerText = waterLevels.Item(i).InnerText + " mm";
+                string value = waterLevels.Item(i).InnerText;
+                if (int.Parse(value) < 100)
+                {
+                    value = rec;
+                }
+                else
+                {
+                    rec = value;
+                }
+                //waterLevel.InnerText = waterLevels.Item(i).InnerText + " mm";
+                waterLevel.InnerText = value + " mm";
                 name.InnerText = ss.Name;
 
                 feed.AppendChild(name); feed.AppendChild(waterLevel); feed.AppendChild(time);

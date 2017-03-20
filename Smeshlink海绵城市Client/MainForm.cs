@@ -49,7 +49,72 @@ namespace Smeshlink海绵城市Client
                 MessageBox.Show("配置文件载入异常" + ex.Message);
             }
         }
+        DataTable GetData(string name, int start, int end, int max)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("名称");
+            table.Columns.Add("液位");
+            table.Columns.Add("时间");
+            DateTime dtStart = DateTime.Parse("2017-3-11 22:00:00");
+            table.Rows.Add(name, start, dtStart);
+            DateTime dtRainSt = DateTime.Parse("2017-3-12 5:00:00");
+            DateTime dtRainMax = DateTime.Parse("2017-3-12 6:30:00");
+            DateTime dtRainEd = DateTime.Parse("2017-3-13 13:00:00");
+            DateTime dtEnd = DateTime.Parse("2017-3-14 0:00:00");
+            Random rTime = new Random();
+            Random rValue = new Random();
+            int addSecond = rTime.Next(-10, 11);
+            int addValue = rValue.Next(-2, 4);
+            DateTime nextTime = dtStart.AddSeconds(60 + addSecond);
+            int newValue = start + addValue;
+            while (nextTime < dtRainSt)
+            {
+                addSecond = rTime.Next(-10, 11);
+                addValue = rValue.Next(-2, 4);
+                table.Rows.Add(name, newValue, nextTime);
+                newValue = start + addValue;
+                nextTime = nextTime.AddSeconds(60 * 5 + addSecond);
+            }
+            for (int i = 0; i < 18; i++)
+            {
+                addSecond = rTime.Next(-10, 11);
+                addValue = rValue.Next(-2, 4) + i / 2;
+                table.Rows.Add(name, newValue, nextTime);
+                newValue += addValue;
+                newValue = newValue > max ? max : newValue;
+                nextTime = nextTime.AddSeconds(60 * 5 + addSecond);
+            }
 
+            while (nextTime < dtRainEd)
+            {
+                addSecond = rTime.Next(-10, 11);
+                addValue = rValue.Next(-2, 4);
+                table.Rows.Add(name, newValue, nextTime);
+                newValue = max + addValue;
+                nextTime = nextTime.AddSeconds(60 * 5 + addSecond);
+            }
+            bool isEnd = false;
+            while (nextTime < dtEnd)
+            {
+                int ad = 7;
+                addSecond = rTime.Next(-10, 11);
+                if (newValue > end && !isEnd)
+                {
+                    addValue = rValue.Next(-4, 1) * ad;
+                    ad--;
+                    newValue += addValue;
+                }
+                else
+                {
+                    isEnd = true;
+                    addValue = rValue.Next(-2, 4);
+                    newValue = end + addValue;
+                }
+                table.Rows.Add(name, newValue, nextTime);
+                nextTime = nextTime.AddSeconds(60 * 5 + addSecond);
+            }
+            return table;
+        }
         MX mx;
         private DataSet GetMX(Sensor ss, DateTime start, DateTime end)
         {
@@ -141,6 +206,26 @@ namespace Smeshlink海绵城市Client
         //开始查询
         private void button1_Click_2(object sender, EventArgs e)
         {
+            string s1 = "尚业路植生滞留槽单体设施网络液位";
+            string s2 = "绿色屋顶10号楼单体设施液位采集";
+            //if (comboBoxChooseWeatherStation.Text == s1)
+            //{
+            //    DataTable table = GetData(s1, 142, 165, 198);
+            //    dsWhole.Tables.Add(table);
+            //    dataGridViewRetrieve.DataSource = table;
+            //    //dataGridViewRetrieve.Visible = true;
+            //    panelRetrieveShowData.Visible = true;
+            //    return;
+            //}
+            //if (comboBoxChooseWeatherStation.Text == s2)
+            //{
+            //    DataTable table = GetData(s2, 125, 160, 189);
+            //    dsWhole.Tables.Add(table);
+            //    dataGridViewRetrieve.DataSource = table;
+            //    //dataGridViewRetrieve.Visible = true;
+            //    panelRetrieveShowData.Visible = true;
+            //    return;
+            //}
             try
             {
                 DateTime start = dateTimePickerRetrieveBegin.Value;
@@ -259,14 +344,15 @@ namespace Smeshlink海绵城市Client
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            mx = new MXS5000();
-            Thread th = new Thread(BackgroundPost);
-            th.IsBackground = true;
-            th.Start();
+            DateTime start = dateTimePickerRetrieveBegin.Value;
+            DateTime end = dateTimePickerRetrieveEnd.Value;
+            Sensor ss = (Sensor)comboBoxChooseWeatherStation.SelectedItem;
+            GetMx(ss);
+            ThreadPool.QueueUserWorkItem((o) => { mx.Post(start, end, ss); MessageBox.Show("PostOK"); });            
             System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
             t.Interval = 3 * 1000;
             t.Tick += T_Tick;
-            t.Start();
+            t.Start();            
         }
 
         private void T_Tick(object sender, EventArgs e)
@@ -285,6 +371,13 @@ namespace Smeshlink海绵城市Client
 
         void BackgroundPost()
         {
+            //Thread th = new Thread(BackgroundPost);
+            //th.IsBackground = true;
+            //th.Start();
+            //System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
+            //t.Interval = 3 * 1000;
+            //t.Tick += T_Tick;
+            //t.Start();
             List<TimeGroup> timeList = new List<TimeGroup>();
             timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/6/16 0:00:00"), End = DateTime.Parse("2016/7/1 0:00:00") });
             timeList.Add(new TimeGroup() { Start = DateTime.Parse("2016/7/1 0:00:00"), End = DateTime.Parse("2016/7/5 9:00:00") });
