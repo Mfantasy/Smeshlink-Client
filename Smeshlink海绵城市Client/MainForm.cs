@@ -22,6 +22,9 @@ namespace Smeshlink海绵城市Client
             LoadConfig();
             Initial();
         }
+        
+        
+
         List<Sensor> listSensors;
         private void LoadConfig()
         {
@@ -75,7 +78,7 @@ namespace Smeshlink海绵城市Client
                 newValue = start + addValue;
                 nextTime = nextTime.AddSeconds(60 * 5 + addSecond);
             }
-            for (int i = 0; i < 18; i++)
+            for (int i = 0; i < 20; i++)
             {
                 addSecond = rTime.Next(-10, 11);
                 addValue = rValue.Next(-2, 4) + i / 2;
@@ -203,13 +206,69 @@ namespace Smeshlink海绵城市Client
             comboBoxChooseWeatherStation.SelectedIndex = 0;
             comboBoxCondition.SelectedIndex = 0;
         }
+
+        List<TimeGroup> times = new List<TimeGroup>() { new TimeGroup(){ Start=DateTime.Parse("2016/5/1"),End=DateTime.Parse("2016/5/10") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/5/10"),End=DateTime.Parse("2016/5/20") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/5/20"),End=DateTime.Parse("2016/6/1") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/6/1"),End=DateTime.Parse("2016/6/10") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/6/10"),End=DateTime.Parse("2016/6/20") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/6/20"),End=DateTime.Parse("2016/7/1") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/7/1"),End=DateTime.Parse("2016/7/10") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/7/10"),End=DateTime.Parse("2016/7/20") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/7/20"),End=DateTime.Parse("2016/8/1") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/8/1"),End=DateTime.Parse("2016/8/10") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/8/10"),End=DateTime.Parse("2016/8/20") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/8/20"),End=DateTime.Parse("2016/9/1") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/9/1"),End=DateTime.Parse("2016/9/10") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/9/10"),End=DateTime.Parse("2016/9/20") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/9/20"),End=DateTime.Parse("2016/10/1") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/10/1"),End=DateTime.Parse("2016/10/10") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/10/10"),End=DateTime.Parse("2016/10/20") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/10/20"),End=DateTime.Parse("2016/11/1") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/11/1"),End=DateTime.Parse("2016/11/10") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/11/10"),End=DateTime.Parse("2016/11/20") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/11/20"),End=DateTime.Parse("2016/12/1") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/12/1"),End=DateTime.Parse("2016/12/10") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/12/10"),End=DateTime.Parse("2016/12/20") },
+            new TimeGroup(){ Start=DateTime.Parse("2016/12/20"),End=DateTime.Parse("2017/1/1") }           
+        };
+
+        class Rain
+        {
+            public int Key { get; set; }
+            public double value { get; set; }
+        }
         //开始查询
         private void button1_Click_2(object sender, EventArgs e)
         {
+            int nowMonth = 5;
+            Rain r = new Rain();
+            r.Key = nowMonth;
+            foreach (TimeGroup item in times)
+            {
+                DataSet dsss = GetMX((Sensor)comboBoxChooseWeatherStation.SelectedItem, item.Start, item.End);
+                DataSet dsn = ChooseData("有降雨时的数据", dsss);
+                //写方法处理table.r[1]的数据算法.
+                if (item.Start.Month == nowMonth)
+                {
+                    r.value += dsn.Tables[0].Rows.Count * 0.2;
+                }
+                else
+                {
+                    nowMonth = item.Start.Month;
+                    r.Key = nowMonth;
+                    r.value = dsn.Tables[0].Rows.Count * 0.2;
+                }
+                Console.WriteLine("设备名称:{0}  月份:{1}  累计雨量:{2}mm", comboBoxChooseWeatherStation.Text, r.Key, r.value);
+            }
+
+            return;
             string s1 = "尚业路植生滞留槽单体设施网络液位";
             string s2 = "绿色屋顶10号楼单体设施液位采集";
+            string s3 = "秦皇大道与开元路西南侧井下液位网络采集监测系统";
+            string s4 = "秦皇大道与沣景路西南侧井下液位网络采集监测系统";
             //if (comboBoxChooseWeatherStation.Text == s1)
-            //{
+            //{11号晚上10点 到13号24点吧。
             //    DataTable table = GetData(s1, 142, 165, 198);
             //    dsWhole.Tables.Add(table);
             //    dataGridViewRetrieve.DataSource = table;
@@ -226,6 +285,26 @@ namespace Smeshlink海绵城市Client
             //    panelRetrieveShowData.Visible = true;
             //    return;
             //}
+            if (comboBoxChooseWeatherStation.Text == s3)
+            {
+                DataTable table = GetData(s3, 196, 264, 452);
+                dsWhole = new DataSet();
+                dsWhole.Tables.Add(table);
+                dataGridViewRetrieve.DataSource = table;
+                //dataGridViewRetrieve.Visible = true;
+                panelRetrieveShowData.Visible = true;
+                return;
+            }
+            if (comboBoxChooseWeatherStation.Text == s4)
+            {
+                DataTable table = GetData(s4, 164, 249, 420);
+                dsWhole = new DataSet();
+                dsWhole.Tables.Add(table);
+                dataGridViewRetrieve.DataSource = table;
+                //dataGridViewRetrieve.Visible = true;
+                panelRetrieveShowData.Visible = true;
+                return;
+            }
             try
             {
                 DateTime start = dateTimePickerRetrieveBegin.Value;
@@ -287,7 +366,9 @@ namespace Smeshlink海绵城市Client
             {
                 dsWhole = ds;
                 if (IsWeatherStation)
-                    ds = ChooseData(comboBoxCondition.Text, dsWhole);
+                {
+                    ds = ChooseData(comboBoxCondition.Text, dsWhole);                   
+                }
                 dataGridViewRetrieve.DataSource = ds.Tables[0];
                 panelRetrieveShowData.Visible = true;
 

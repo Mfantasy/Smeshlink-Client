@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Smeshlink海绵城市Client</RootNamespace>
     <AssemblyName>Smeshlink海绵城市Client</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -74,6 +74,7 @@
     <Compile Include="Device\MXS1501.cs" />
     <Compile Include="Device\MXS5000.cs" />
     <Compile Include="Device\Sensor.cs" />
+    <Compile Include="EXwork.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
