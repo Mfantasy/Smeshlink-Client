@@ -41,7 +41,7 @@ namespace Smeshlink海绵城市Client.DLL
         {
             string timeStart = start.ToUniversalTime().ToString(@"yyyy-MM-dd\THH:mm:ss\Z");
             string timeEnd = end.ToUniversalTime().ToString(@"yyyy-MM-dd\THH:mm:ss\Z");
-            string strUrl = String.Format("http://api.misty.smeshlink.com/feeds/{0}.xml?key=df44011f-3daf-4372-8c14-9ad29a63a5cb&start={1}&end={2}", gatewayId, timeStart, timeEnd);
+            string strUrl = String.Format("http://api.smeshlink.com/feeds/{0}.xml?key=df44011f-3daf-4372-8c14-9ad29a63a5cb&start={1}&end={2}", gatewayId, timeStart, timeEnd);
             Stream result = RequestGet(strUrl);
             return result;
         }

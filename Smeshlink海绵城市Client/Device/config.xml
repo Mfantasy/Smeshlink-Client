@@ -1,338 +1,350 @@
 ﻿<config>
-	<!-- 水样采集器 12+1-->
-	<sensor>
-		<name>尚业路植生滞留槽出水口水样采集</name>
-		<gateway>0100000000000402</gateway>
-		<node>3</node>
-		<model>MX6100</model>
-		<sitewhere>92385663-b897-4558-9d22-21bd573aceec</sitewhere>
-	</sensor>
-	<sensor>
-		<name>西部云谷北侧水样采集器</name>
-		<gateway>0100000000000410</gateway>
-		<node>1</node>
-		<model>MX6100</model>
-		<sitewhere>c383c664-55a7-4fcd-b957-89bd65611bb1</sitewhere>
-	</sensor>
-	<sensor>
-		<name>同德佳苑西侧雨水花园入水口水样</name>
-		<gateway>0100000000000412</gateway>
-		<node>1</node>
-		<model>MX6100</model>
-		<sitewhere>7f548eba-79a1-4acb-8915-2a480b8d743d</sitewhere>
-	</sensor>
-	<sensor>
-		<name>同德佳苑东侧雨水花园出水口水样</name>
-		<gateway>0100000000000412</gateway>
-		<node>3</node>
-		<model>MX6100</model>
-		<sitewhere>48cd6d1e-f811-415f-a1bb-5c7950df9b1b</sitewhere>
-	</sensor>
-	<sensor>
-		<name>尚业路植生滞留槽入水口水样采集器</name>
-		<gateway>0100000000000402</gateway>
-		<node>2</node>
-		<model>MX6100</model>
-		<sitewhere>99464074-22e0-41ef-a217-b1272e9892a9</sitewhere>
-	</sensor>
-	<sensor>
-		<name>尚业路雨水水样采集器</name>
-		<gateway>0100000000000402</gateway>
-		<node>1</node>
-		<model>MX6100</model>
-		<sitewhere>6b2e9bab-1c41-4148-ab39-e1926a24eeb5</sitewhere>
-	</sensor>
-	<sensor>
-		<name>同德小学外排口水样采集器</name>
-		<gateway>0100000000000413</gateway>
-		<node>2</node>
-		<model>MX6100</model>
-		<sitewhere>a13cfd31-1422-4c5e-b4e5-c5b83c5e4d1f</sitewhere>
-	</sensor>
-	<sensor>
-		<name>同德公寓外排口水样采集器</name>
-		<gateway>0100000000000413</gateway>
-		<node>1</node>
-		<model>MX6100</model>
-		<sitewhere>ca3a440f-e151-4d73-962f-a060fc87c18c</sitewhere>
-	</sensor>
-	<sensor>
-		<name>同德佳苑东侧雨水花园入水样采集</name>
-		<gateway>0100000000000412</gateway>
-		<node>2</node>
-		<model>MX6100</model>
-		<sitewhere>9d42b09e-4ebd-4cfb-8398-c15dace7f423</sitewhere>
-	</sensor>
-	<sensor>
-		<name>沣景路Y23雨水水样采集器</name>
-		<gateway>0100000000000400</gateway>
-		<node>1</node>
-		<model>MX6100</model>
-		<sitewhere>0e0545d4-c069-4bc7-814e-faf1339e56d7</sitewhere>
+  <!--气象站3-->
+  <sensor>
+		<name>白城新区5号桥气象站</name>
+		<gateway>81448A00E52422E2</gateway>
+		<node>0</node>
+		<model>MXS5000</model>
+    <sitewhere>2f59621b-3a27-4c5a-ab3f-7b8cc4db86c6</sitewhere>
+	</sensor>  
+  <sensor>
+    <name>白城市建委气象监测站</name>
+    <gateway>81E78300E5242214</gateway>
+    <node>0</node>
+    <model>MXS5000</model>
+    <sitewhere>c82a527f-2c9f-4ff1-8c07-b8bfd5e78ec6</sitewhere>
+  </sensor>  
+  <sensor>
+    <name>规划一河：出水闸口PH</name>
+    <gateway>3030303030303039</gateway>
+    <node>9</node>
+    <model>MX6300</model>
+    <sitewhere>277adaf6-d565-4da6-a673-7dd0e84d4a9e</sitewhere>
+</sensor>
+<sensor>
+    <name>纵七路与丽江路交口北侧7YS2381PH</name>
+    <gateway>3030303030303038</gateway>
+    <node>8</node>
+    <model>MX6300</model>
+    <sitewhere>15406de2-1c5c-4c44-80cb-d8f2dd1f8213</sitewhere>
+</sensor>
+  <sensor>
+    <name>纵八路东侧新区中学出水口PH</name>
+    <gateway>3030303030303130</gateway>
+    <node>10</node>
+    <model>MX6300</model>
+    <sitewhere>641b4d41-6126-4b05-ba3d-52c9cdee2116</sitewhere>
+</sensor>
+    <sensor>
+    <name>橫九路市民中心出水口PH</name>
+    <gateway>3030303030303132</gateway>
+    <node>12</node>
+    <model>MX6300</model>
+    <sitewhere>4f4eaf56-40fb-4592-80f6-eeefd3b10854</sitewhere>
+</sensor>
+  <sensor>
+    <name>规划三河鹤鸣湖出水桥PH</name>
+    <gateway>3030303030303131</gateway>
+    <node>11</node>
+    <model>MX6300</model>
+    <sitewhere>8df12fa1-8295-461e-9293-9a5e349cd033</sitewhere>
+</sensor>
+<sensor>
+    <name>纵八路与丽江路交口北侧7YS892PH</name>
+    <gateway>3030303030303035</gateway>
+    <node>5</node>
+    <model>MX6300</model>
+    <sitewhere>4314fe47-7f90-4b8a-ab9f-c9b3bc9c23eb</sitewhere>
+</sensor>
+  <sensor>
+    <name>丽江路北侧新区中学出水口PH</name>
+    <gateway>3030303030303031</gateway>
+    <node>1</node>
+    <model>MX6300</model>
+    <sitewhere>d227d0eb-17a4-440e-881f-460e25a4c48c</sitewhere>
   </sensor>
+  <sensor>
+    <name>南干渠华严寺正门绿化带雨水井PH</name>
+    <gateway>3030303030303032</gateway>
+    <node>2</node>
+    <model>MX6300</model>
+    <sitewhere>72322859-8a8b-442e-909d-fe7b9bb7c6ff</sitewhere>
+  </sensor>
+  <sensor>
+    <name>长庆南街与丽江路交口北侧7YS862PH</name>
+    <gateway>3030303030303135</gateway>
+    <node>15</node>
+    <model>MX6300</model>
+    <sitewhere>860028a9-981d-483d-949d-08a22a064835</sitewhere>
+</sensor>
+  <sensor>
+    <name>规划一河：出水闸口TSS</name>
+    <gateway>3030303030303039</gateway>
+    <node>9</node>
+    <model>MX6400</model>
+    <sitewhere>31cd0b82-b972-41e1-9ee9-cc0e6ea7fec0</sitewhere>
+</sensor>
+  <sensor>
+    <name>长庆南街与丽江路交口北侧7YS862TSS</name>
+    <gateway>3030303030303135</gateway>
+    <node>15</node>
+    <model>MX6400</model>
+    <sitewhere>23df1a67-12ef-4611-9c00-dc7737b59ed9</sitewhere>
+</sensor>
+  <sensor>
+    <name>纵八路东侧新区中学出水口TSS</name>
+    <gateway>3030303030303130</gateway>
+    <node>10</node>
+    <model>MX6400</model>
+    <sitewhere>91c37767-8a63-43bd-be38-86e384019b6c</sitewhere>
+</sensor>
+  <sensor>
+    <name>规划三河鹤鸣湖出水桥TSS</name>
+    <gateway>3030303030303131</gateway>
+    <node>11</node>
+    <model>MX6400</model>
+    <sitewhere>c1b0b837-47be-4f75-a249-80d1f12af4f2</sitewhere>
+</sensor>
+<sensor>
+    <name>纵七路与丽江路交口北侧7YS2381TSS</name>
+    <gateway>3030303030303038</gateway>
+    <node>8</node>
+    <model>MX6400</model>
+    <sitewhere>e9b7d8e6-c3f9-4443-aa9a-08831fc01252</sitewhere>
+</sensor>
+  <sensor>
+    <name>丽江路北侧新区中学出水口TSS</name>
+    <gateway>3030303030303031</gateway>
+    <node>1</node>
+    <model>MX6400</model>
+    <sitewhere>c7e7645f-688b-409c-b9b1-6209db876b35</sitewhere>
+  </sensor>
+  <sensor>
+    <name>纵八路与丽江路交口北侧7YS892TSS</name>
+    <gateway>3030303030303035</gateway>
+    <node>5</node>
+    <model>MX6400</model>
+    <sitewhere>44f932b5-9693-4885-bbba-569038fb763d</sitewhere>
+</sensor>
+  <sensor>
+    <name>橫九路市民中心出水口TSS</name>
+    <gateway>3030303030303132</gateway>
+    <node>12</node>
+    <model>MX6400</model>
+    <sitewhere>b5b6d7f3-bdfe-4e9e-a527-e56a792ca718</sitewhere>
+</sensor>
+  <sensor>
+    <name>南干渠华严寺正门绿化带雨水井TSS</name>
+    <gateway>3030303030303032</gateway>
+    <node>2</node>
+    <model>MX6400</model>
+    <sitewhere>255d2051-7dbb-4177-a7ca-dd6687efb569</sitewhere>
+  </sensor>
+  <sensor>
+    <name>胜利路与金辉街交口西侧2YS142液位</name>
+    <gateway>3030303030303034</gateway>
+    <node>4</node>
+    <model>MX8300</model>
+    <sitewhere>5f5dcc6f-c07b-44cd-a3b5-9a001bb43445</sitewhere>
+</sensor>
+  <sensor>
+    <name>丽江路北侧新区中学出水口液位</name>
+    <gateway>3030303030303031</gateway>
+    <node>1</node>
+    <model>MX8300</model>
+    <sitewhere>66dfc53e-5dd4-4668-8cf3-dad226ddf503</sitewhere>
+  </sensor>
+  <sensor>
+    <name>南干渠华严寺正门绿化带雨水井液位</name>
+    <gateway>3030303030303032</gateway>
+    <node>2</node>
+    <model>MX8300</model>
+    <sitewhere>77deb1ef-6136-4d58-8e08-6382a86a5b46</sitewhere>
+  </sensor>
+  <sensor>
+    <name>南干渠华严寺正门污水井液位</name>
+    <gateway>3030303030303033</gateway>
+    <node>3</node>
+    <model>MX8300</model>
+    <sitewhere>a0981f0b-3584-4207-8fe3-21f9500effb6</sitewhere>
+  </sensor>
+  <sensor>
+    <name>规划三河鹤鸣湖出水桥液位</name>
+    <gateway>3030303030303131</gateway>
+    <node>11</node>
+    <model>MX8300</model>
+    <sitewhere>eb7e283e-c368-4d7d-aedb-0e16db830a87</sitewhere>
+</sensor>
+ <sensor>
+    <name>纵八路与丽江路交口北侧7YS892液位</name>
+    <gateway>3030303030303035</gateway>
+    <node>5</node>
+    <model>MX8300</model>
+    <sitewhere>f8a7664b-6744-4b08-bfe7-1954dd02d808</sitewhere>
+</sensor>
    <sensor>
-		<name>西部云谷东侧水样采集器</name>
-		<gateway>0100000000000410</gateway>
-		<node>2</node>
-		<model>MX6100</model>
-		<sitewhere>97e4386c-855a-4521-a39b-873d87b754d0</sitewhere>
-  </sensor>
-  <sensor>
-		<name>绿色屋顶10号楼水样采集器</name>
-		<gateway>0100000000000411</gateway>
-		<node>1</node>
-		<model>MX6100</model>
-		<sitewhere>8733f30c-6b38-4c33-89f1-5a68a2098236</sitewhere>
-  </sensor>
-  <!-- 流量计 14-->
-  <sensor>
-		<name>西部云谷东侧总排流量</name>
-		<gateway>0100000000000410</gateway>
-		<node>20</node>
-		<model>MX9000</model>
-		<sitewhere>e1415277-7583-413b-b946-05db9419a658</sitewhere>
-	</sensor>
-	<sensor>
-		<name>西部云谷北侧总排流量</name>
-		<gateway>0100000000000410</gateway>
-		<node>10</node>
-		<model>MX9000</model>
-		<sitewhere>0dbe6f44-133b-4841-8552-b1f584a95e22</sitewhere>
-	</sensor>
-	<sensor>
-		<name>尚业路植生滞留槽出水口流量计</name>
-		<gateway>0100000000000402</gateway>
-		<node>30</node>
-		<model>MX9000</model>
-		<sitewhere>d5d85b87-a452-46d6-8b1b-96bc4140a7e9</sitewhere>
-	</sensor>
-	<sensor>
-		<name>尚业路口井下流量网络采集系统</name>
-		<gateway>0100000000000402</gateway>
-		<node>10</node>
-		<model>MX9000</model>
-		<sitewhere>57121260-fee1-4707-94f9-7e9a4de8133e</sitewhere>
-	</sensor>
-	<sensor>
-		<name>同德公寓东北侧井下流量采集</name>
-    <gateway>0100000000000413</gateway>
-		<node>20</node>
-		<model>MX9000</model>
-		<sitewhere>f63a7110-8303-4478-bc4c-60a138c8058f</sitewhere>
-	</sensor>
-	<sensor>
-		<name>同德公寓外排口流量监测</name>
-		<gateway>0100000000000413</gateway>
-		<node>10</node>
-		<model>MX9000</model>
-		<sitewhere>b093ad8b-f264-4530-a176-8404f5a1e132</sitewhere>
-	</sensor>
-	<sensor>
-    <name>兴咸路与统一路交汇处流量计</name>
-    <gateway>0100000000000401</gateway>
+    <name> 纵十七路7YS17660液位</name>
+    <gateway>3030303030303134</gateway>
+    <node>14</node>
+    <model>MX8300</model>
+    <sitewhere>645cc96c-d355-417b-be66-b6955edee152</sitewhere>
+</sensor>
+<sensor>
+    <name>东海路与长庆南街交口东侧7YS128液位</name>
+    <gateway>3030303030303133</gateway>
+    <node>13</node>
+    <model>MX8300</model>
+    <sitewhere>5e40f288-af41-4891-8ed0-c9c2f5968f38</sitewhere>
+</sensor>
+<sensor>
+    <name>橫九路市民中心出水口液位</name>
+    <gateway>3030303030303132</gateway>
+    <node>12</node>
+    <model>MX8300</model>
+    <sitewhere>ec32d18e-bfb3-4a1f-baba-b947f3da6971</sitewhere>
+</sensor>
+<sensor>
+    <name>纵八路东侧新区中学出水口液位</name>
+    <gateway>3030303030303130</gateway>
     <node>10</node>
-    <model>MX9000</model>
-    <sitewhere>0f2dbfb8-13d3-4844-bd0f-457bf8a68c8b</sitewhere>
+    <model>MX8300</model>
+    <sitewhere>6c24f99f-c252-48d8-a64c-fe5481d5fcc6</sitewhere>
+</sensor>
+<sensor>
+    <name>纵七路与丽江路交口北侧7YS2381液位</name>
+    <gateway>3030303030303038</gateway>
+    <node>8</node>
+    <model>MX8300</model>
+    <sitewhere>a4108bb6-82ad-4d62-b730-fc5b785d2bcc</sitewhere>
+</sensor>
+<sensor>
+    <name>鹤鸣湖西侧7YS2516液位</name>
+    <gateway>3030303030303037</gateway>
+    <node>7</node>
+    <model>MX8300</model>
+    <sitewhere>1c2c70ab-753c-4ae6-adf9-5933d6bc9b45</sitewhere>
+</sensor>
+<sensor>
+    <name>长庆南街与丽江路交口北侧7YS862液位</name>
+    <gateway>3030303030303135</gateway>
+    <node>15</node>
+    <model>MX8300</model>
+    <sitewhere>d56b94b4-ba55-4bf0-9139-9d5439650eb2</sitewhere>
+</sensor>
+<sensor>
+    <name>规划一河：出水闸口液位</name>
+    <gateway>3030303030303039</gateway>
+    <node>9</node>
+    <model>MX8300</model>
+    <sitewhere>77d2cd3a-bed0-42df-ae13-56b8e63de45d</sitewhere>
+	</sensor>
+	  <sensor>
+    <name>南干渠华严寺正门污水井液位</name>
+    <gateway>3030303030303033</gateway>
+    <node>3</node>
+    <model>MX8300</model>
+    <sitewhere>a0981f0b-3584-4207-8fe3-21f9500effb6</sitewhere>
+  </sensor>
+  <!--9110井下雨水流量T型-->
+  <sensor>
+    <name>新区中学南门与市政管网交汇口流量</name>
+    <gateway>3030303030303031</gateway>
+    <node>1</node>
+    <model>MX9110</model>
+    <sitewhere>c3ddf196-e580-4fd5-b4cf-329cc9f5d28a</sitewhere>
   </sensor>
   <sensor>
-    <name>秦皇大道与康定路交叉口</name>
-    <gateway>0100000000000403</gateway>
+    <name>南干渠华严寺正门污水井流量</name>
+    <gateway>3030303030303033</gateway>
+    <node>3</node>
+    <model>MX9110</model>
+    <sitewhere>35ba76c2-dab8-40b9-9508-4ecbfe9dcce9</sitewhere>
+  </sensor>
+  <sensor>
+    <name>南干渠华严寺正门绿化带雨水井流量</name>
+    <gateway>3030303030303032</gateway>
+    <node>2</node>
+    <model>MX9110</model>
+    <sitewhere>7d80fd68-b14e-4c06-bea8-fbc3e456f7d1</sitewhere>
+  </sensor>
+<sensor>
+    <name>胜利路与金辉街交口西侧2YS142流量</name>
+    <gateway>3030303030303034</gateway>
+    <node>4</node>
+    <model>MX9110</model>
+    <sitewhere>54ccdf06-28a5-409a-8091-ec33f48f6ca6</sitewhere>
+</sensor>
+
+<sensor>
+    <name>鹤鸣湖西侧7YS2516流量</name>
+    <gateway>3030303030303037</gateway>
+    <node>7</node>
+    <model>MX9110</model>
+    <sitewhere>2531ef42-2eaf-46b1-879c-f2dd161a01b5</sitewhere>
+</sensor>
+<sensor>
+    <name>规划三河鹤鸣湖出水桥流量</name>
+    <gateway>3030303030303131</gateway>
+    <node>11</node>
+    <model>MX9110</model>
+    <sitewhere>926d12aa-b2ea-42d9-88ce-065006595b87</sitewhere>
+</sensor>
+<sensor>
+    <name>长庆南街与丽江路交口北侧7YS862流量</name>
+    <gateway>3030303030303135</gateway>
+    <node>15</node>
+    <model>MX9110</model>
+    <sitewhere>192ebcfa-47d8-45d4-b219-55b85855556d</sitewhere>
+</sensor>
+<sensor>
+    <name>规划一河：出水闸口流量</name>
+    <gateway>3030303030303039</gateway>
+    <node>9</node>
+    <model>MX9110</model>
+    <sitewhere>fcc87a8c-f655-4821-b1b4-4eb816b32740</sitewhere>
+</sensor>
+<sensor>
+    <name>纵八路与丽江路交口北侧7YS892流量</name>
+    <gateway>3030303030303035</gateway>
+    <node>5</node>
+    <model>MX9110</model>
+    <sitewhere>d7e5d929-1140-499d-930d-bb82c8a6faae</sitewhere>
+</sensor>
+<sensor>
+    <name>纵七路与丽江路交口北侧7YS2381流量</name>
+    <gateway>3030303030303038</gateway>
+    <node>8</node>
+    <model>MX9110</model>
+    <sitewhere>416d6d94-d650-4fdd-bcc1-aec758dd8f1b</sitewhere>
+</sensor>
+<sensor>
+    <name>纵八路东侧新区中学出水口流量</name>
+    <gateway>3030303030303130</gateway>
     <node>10</node>
-    <model>MX9000</model>
-    <sitewhere>518ae675-1a21-40ef-87d1-fc636f52a24a</sitewhere>
-  </sensor>
-  <sensor>
-    <name>秦皇大道与统一路交叉口</name>
-    <gateway>0100000000000403</gateway>
-    <node>20</node>
-    <model>MX9000</model>
-    <sitewhere>c943cc01-5ba2-4712-b74e-fdd3da335481</sitewhere>
-  </sensor>
-  <sensor>
-    <name>康定路与兴咸路交叉口</name>
-    <gateway>0100000000000404</gateway>
-    <node>10</node>
-    <model>MX9000</model>
-    <sitewhere>6d99ddf0-0ad7-4b92-a1d6-b978f91f2ba8</sitewhere>
-  </sensor>
-  <sensor>
-    <name>沣景路Y23雨水流量监测</name>
-    <gateway>0100000000000400</gateway>
-    <node>10</node>
-    <model>MX9000</model>
-    <sitewhere>9be59fcc-53b7-48a3-8d7a-039c6bef4069</sitewhere>
-  </sensor>
-  <sensor>
-    <name>沣景路Y20雨水流量监测</name>
-    <gateway>0100000000000400</gateway>
-    <node>20</node>
-    <model>MX9000</model>
-    <sitewhere>1bcaa39c-ccf0-4c41-92ab-de3b12bf96a6</sitewhere>
-  </sensor>
-  <sensor>
-    <name>沣景路Y14雨水流量监测</name>
-    <gateway>0100000000000400</gateway>
-    <node>30</node>
-    <model>MX9000</model>
-    <sitewhere>7af8a1d2-dcae-4dbd-bb68-1763ca845e44</sitewhere>
-  </sensor>
-  <sensor>
-    <name>沣景路Y3雨水流量监测</name>
-    <gateway>0100000000000400</gateway>
-    <node>40</node>
-    <model>MX9000</model>
-    <sitewhere>9ced6b82-8ded-44df-b4d9-d5cfce930a50</sitewhere>
-  </sensor>
-  <!-- 单体设施液位 5-->
-  <sensor>
-		<name>尚业路植生滞留槽单体设施网络液位</name>
-		<gateway>0100000000000402</gateway>
-		<node>20</node>
-		<model>MX7200</model>
-		<sitewhere>e2ceb8f6-178b-47b9-9bf6-94c74cd2fa37</sitewhere>
-	</sensor>
-  <sensor>
-    <name>同德佳苑西侧雨水花园入水堰液位计</name>
-    <gateway>0100000000000412</gateway>
-    <node>10</node>
-    <model>MX7200</model>
-    <sitewhere>a9d3a9b6-3b1c-4bec-8755-775284929e57</sitewhere>
-  </sensor>
-  <sensor>
-    <name>同德佳苑东侧雨水花园入水堰</name>
-    <gateway>0100000000000412</gateway>
-    <node>20</node>
-    <model>MX7200</model>
-    <sitewhere>cb5aa80a-5f8f-4db1-80f3-795884abb1b7</sitewhere>
-  </sensor>
-  <sensor>
-    <name>同德佳苑东侧雨水花园出水堰</name>
-    <gateway>0100000000000412</gateway>
-    <node>30</node>
-    <model>MX7200</model>
-    <sitewhere>e74b0afb-06da-4961-9003-119efd07be8c</sitewhere>
-  </sensor>
-  <sensor>
-    <name>绿色屋顶10号楼单体设施液位采集</name>
-    <gateway>0100000000000411</gateway>
-    <node>10</node>
-    <model>MX7200</model>
-    <sitewhere>e0befee6-e89e-424e-b436-4fbeb3034cb0</sitewhere>
-  </sensor>
-  <!-- 气象站 5-->
-  <sensor>
-		<name>总部经济园微气象监测</name>
-		<gateway>81F6BA00E524220F</gateway>
-		<node>0</node>
-		<model>MXS5000</model>
-		<sitewhere>aa784708-700e-4a86-88ff-a49bdf405b21</sitewhere>
-	</sensor>
-	<sensor>
-		<name>中央绿廊微气象监测</name>
-		<gateway>81EAA500E524223A</gateway>
-		<node>0</node>
-		<model>MXS5000</model>
-    <sitewhere>34bab1e8-bc26-48fb-8132-48a86cd9cbc5</sitewhere>
-	</sensor>
-	<sensor>
-		<name>云谷10号楼微气象监测</name>
-		<gateway>81B28F01E524227F</gateway>
-		<node>0</node>
-		<model>MXS5000</model>
-    <sitewhere>b7a73197-9401-4959-96f2-d9d2b71cfd48</sitewhere>
-	</sensor>
-	<sensor>
-		<name>康定和园微气象监测</name>
-		<gateway>81E85C01E524228E</gateway>
-		<node>0</node>
-		<model>MXS5000</model>
-    <sitewhere>4c568c25-af2f-4faa-ad0b-d83ea3368f3b</sitewhere>
-	</sensor>
-	<sensor>
-		<name>天福和园B栋10号楼气象监测</name>
-		<gateway>8194CD00E524229E</gateway>
-		<node>0</node>
-		<model>MXS5000</model>
-    <sitewhere>7219a374-062d-473d-97e4-9227d11ac167</sitewhere>
-	</sensor>
-	<!-- 地下水 5-->
-	<sensor>
-		<name>总部经济园内9号楼北侧地下水液位</name>
-		<gateway>0100000000000411</gateway>
-		<node>1000</node>
-		<model>MX8100</model>
-		<sitewhere>f45a11fd-54a9-4869-bf75-2c4b908ee63d</sitewhere>
-	</sensor>
-	<sensor>
-		<name>西部云谷1000地下水液位</name>
-		<gateway>0100000000000410</gateway>
-		<node>1000</node>
-		<model>MX8100</model>
-		<sitewhere>591baa57-34be-4c05-9468-4ff01ec772a0</sitewhere>
-	</sensor>
-	<sensor>
-		<name>东张村蔬菜种植合作社内地下水监测</name>
-		<gateway>0100000000000211</gateway>
-		<node>1000</node>
-		<model>MX8100</model>
-		<sitewhere>2fb85d1e-916a-4302-9658-034d9132e876</sitewhere>
-	</sensor>
-	<sensor>
-		<name>西张村生猪养殖合作社内地下水监测</name>
-		<gateway>0100000000000210</gateway>
-		<node>1000</node>
-		<model>MX8100</model>
-		<sitewhere>60046103-ac85-47f4-bcb0-85a3b1cc18d4</sitewhere>
-	</sensor>
-	<sensor>
-		<name>绿化公司内养鸡场地下水监测</name>
-		<gateway>0100000000000210</gateway>
-		<node>2000</node>
-		<model>MX8100</model>
-		<sitewhere>13265bea-284b-449b-b23a-8e7a29c0d045</sitewhere>
-	</sensor>
-	<!-- 内涝点-->
-	<sensor>
-		<name>秦皇大道与开元路西南侧井下液位网络采集监测系统</name>
-		<gateway>0100000000000403</gateway>
-		<node>1000</node>
-		<model>MX8000</model>
-		<sitewhere>e91f7b02-bda4-4b74-af76-b20fcda02d05</sitewhere>
-	</sensor>
-	<sensor>
-		<name>秦皇大道与沣景路西南侧井下液位网络采集监测系统</name>
-		<gateway>0100000000000403</gateway>
-		<node>2000</node>
-		<model>MX8000</model>
-		<sitewhere>98ffaadc-9f9c-4359-98a1-c17c026b1057</sitewhere>
-	</sensor>
-	<!-- 土壤雨水 4-->
-	<sensor>
-		<name>中央绿廊地表土壤水分传感器</name>
-		<gateway>81EAA500E524223A</gateway>
-		<node>3</node>
-		<model>MXS1402</model>
-    <sitewhere>a61fc9ac-78eb-4b1f-845e-7ad45ccd0a11</sitewhere>
-	</sensor>
-	<sensor>
-		<name>同德佳苑东侧土壤温湿度</name>
-		<gateway>8182B200E5242275</gateway>
-		<node>1</node>
-		<model>MXS1402</model>
-    <sitewhere>4c79859e-28cf-4990-8291-aee098e3f6ce</sitewhere>
-	</sensor>
-	<sensor>
-		<name>同德佳苑西侧土壤温湿度</name>
-		<gateway>8182B200E5242275</gateway>
-		<node>2</node>
-		<model>MXS1402</model>
-    <sitewhere>705d585d-7197-43bb-b1e0-b648339b829a</sitewhere>
-	</sensor>
-	<sensor>
-		<name>尚业路植生滞留槽土壤雨水监测系统</name>
-		<gateway>0100000000000402</gateway>
-		<node>100</node>
-		<model>MXS1402</model>
-    <sitewhere>7f97bad9-c601-418f-8f3f-6609ef1be5b5</sitewhere>
-	</sensor>
+    <model>MX9110</model>
+    <sitewhere>deaa0fae-532d-4d66-ae67-e9b211c76768</sitewhere>
+</sensor>
+<sensor>
+    <name>橫九路市民中心出水口流量</name>
+    <gateway>3030303030303132</gateway>
+    <node>12</node>
+    <model>MX9110</model>
+    <sitewhere>a18d61c2-ce15-4337-93ba-357826c5870b</sitewhere>
+</sensor>
+<sensor>
+    <name>东海路与长庆南街交口东侧7YS128流量</name>
+    <gateway>3030303030303133</gateway>
+    <node>13</node>
+    <model>MX9110</model>
+    <sitewhere>ba56d5db-c7b3-4605-ac81-14d8a9de7d18</sitewhere>
+</sensor>
+<sensor>
+    <name> 纵十七路7YS17660流量</name>
+    <gateway>3030303030303134</gateway>
+    <node>14</node>
+    <model>MX9110</model>
+    <sitewhere>eb493dd6-da3d-4ac5-80ec-db1336ed6931</sitewhere>
+</sensor>
 </config>
+  
+  

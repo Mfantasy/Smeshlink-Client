@@ -64,9 +64,12 @@
   <ItemGroup>
     <Compile Include="Device\MX.cs" />
     <Compile Include="Device\MX6100.cs" />
+    <Compile Include="Device\MX6300.cs" />
+    <Compile Include="Device\MX6400.cs" />
     <Compile Include="Device\MX7200.cs" />
     <Compile Include="Device\MX8100.cs" />
     <Compile Include="Device\MX9000.cs" />
+    <Compile Include="Device\MX9110.cs" />
     <Compile Include="Device\MXN880.cs" />
     <Compile Include="Device\MXS1201.cs" />
     <Compile Include="Device\MXS1204.cs" />

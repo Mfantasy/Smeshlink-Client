@@ -105,6 +105,7 @@
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 14;
             this.label2.Text = "错误记录";
+            this.label2.Visible = false;
             // 
             // label1
             // 
@@ -116,6 +117,7 @@
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 13;
             this.label1.Text = "执行进度";
+            this.label1.Visible = false;
             // 
             // button2
             // 
@@ -130,6 +132,7 @@
             this.button2.TabIndex = 12;
             this.button2.Text = "Post到ENNO";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // pictureBox1
