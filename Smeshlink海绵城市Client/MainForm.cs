@@ -7,6 +7,7 @@ using System.Xml;
 using Smeshlink海绵城市Client.DLL;
 using Smeshlink海绵城市Client.Device;
 using System.IO;
+using System.Configuration;
 
 public enum GateWayType
 {
@@ -22,8 +23,55 @@ namespace Smeshlink海绵城市Client
             LoadConfig();
             Initial();
         }
-        
-        
+        //降雨时长,降雨量.最大值.
+        //ex 延时.
+        //降雨量/降雨时长 * 0.11 +0.108 = max
+        //20180108 FOR MX9000流量计 根据降雨时长,降雨量. 计算出流量变化
+        List<double> Method(double 降雨量,double 降雨时长,DateTime start,DateTime end,out DateTime stime)
+        {
+            //首先假设公式是这样 降雨量/降雨时长 * 0.11 +0.108 = max 
+            //求出max之后根据降雨时长计算出时间偏移量 , 开始, 结尾.
+            //推导不出数学公式,就用笨办法吧. 有个时间,有个最大值, 在规定时间先快后慢达到最大值然后再定时降为0
+            //所以首先要有个单位增量, 先慢后快再平  然后减速先快后慢 回退为0.  
+            //极值除以时间.就是单位时间增量,那么就是个线性函数 OK就这么定了.
+            //然后做一下时间偏移,开始时间向后偏移一点儿,结束时间也向后偏移一点儿. 总时间-开始时间+结束时间 除以2 就是极限时间.
+            //那么要得到的就是一个5min为时间间隔的数据集合. 
+            double q1 = 0.11;
+            double q2 = 0.108;
+            double s = 0.5;
+            double e = 0.25;
+            double.TryParse(ConfigurationManager.AppSettings["q1"], out q1);
+            double.TryParse(ConfigurationManager.AppSettings["q2"], out q2);
+            double.TryParse(ConfigurationManager.AppSettings["s"], out s);
+            double.TryParse(ConfigurationManager.AppSettings["e"], out e);
+            //求出流速最大值
+            double vmax = 降雨量 / 降雨时长 * 0.11 + 0.018;
+            //开始计算时间和x的值 x*时间=vmax .  最终还是要选个节点把原有数据替换掉 . 选个最接近的点替换
+            double st = (end - start).TotalMinutes * s;//初始偏移分钟数
+            double et = (end - start).TotalMinutes * e;
+            stime = start.AddMinutes(st);
+            int times = (int)((end - start).TotalMinutes - st + et) / 5;
+            double x = vmax / times / 2;
+            double fx = x * -1;
+            double temp = 0;
+            List<double> res = new List<double>();
+            for (int i = 0; i < times; i++)
+            {
+                if (i > times / 2)
+                {
+                    //开始减少
+                    temp -= x;
+                }
+                else
+                {
+                    //不断增加
+                    temp += x;
+                }
+                res.Add(temp);
+            }
+            return res;
+        }
+
 
         List<Sensor> listSensors;
         private void LoadConfig()
@@ -170,7 +218,10 @@ namespace Smeshlink海绵城市Client
             }
             xdoc = mx.GetXdoc(start, end, ss);
             if (xdoc == null)
-                return null;
+                return null; 
+            //20180108 为了MX9000的流量
+            //if()
+
             XmlNodeReader xnr = new XmlNodeReader(xdoc);
             ds.ReadXml(xnr);
             return ds;
